@@ -1,0 +1,19 @@
+@keyframes move-light {
+  from {
+    transform: translateX(-64px) skewX(-45deg);
+  }
+  to {
+    transform: translateX(300px) skewX(-45deg);
+  }
+}
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -500%, 0);
+    transform: translate3d(0, -500%, 0);
+  }
+}

@@ -1,0 +1,31 @@
+@import '../../../scss/mixins.scss';
+
+.logout {
+  display: flex;
+  align-items: center;
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 32px;
+  }
+  &__username-sidebar,
+  &__exit-sidebar {
+    display: block;
+    padding-left: 32px !important;
+    @include deskfirst(600) {
+      padding-left: 10px !important;
+    }
+  }
+  &__exit {
+    padding: 0 15px;
+    cursor: pointer;
+    &-sidebar {
+      cursor: pointer;
+    }
+    transition: background-color .3s;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}

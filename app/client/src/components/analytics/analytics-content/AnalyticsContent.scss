@@ -1,0 +1,21 @@
+@import '../../../scss/mixins.scss';
+
+.linechart__container {
+  width: 50vw;
+  background: white;
+  padding: 0px 20px;
+  border-radius: 10px;
+  @include deskfirst(600) {
+    width: 80vw;
+    padding: 0;
+  }
+  canvas {
+    width: 50vw;
+  }
+}
+.chartjs-size-monitor {
+  div {
+    @include deskfirst(600) {
+    }
+  }
+}

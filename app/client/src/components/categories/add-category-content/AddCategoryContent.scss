@@ -1,0 +1,28 @@
+@import '../../../scss/mixins.scss';
+
+.col.s12.l6 {
+  margin-bottom: inherit;
+  label:not(:first-child) {
+    @include deskfirst(370) {
+      width: 130%;
+    }
+  }
+  button {
+    margin: 0 10px;
+    @include deskfirst(1360) {
+      margin-left: 0;
+    }
+  }
+}
+.col.s12.l4 {
+  position: relative;
+}
+
+.category__img {
+  height: 200px;
+  &-empty {
+    max-width: 200px;
+    height: 200px;
+    background-color: #d3d3d3;
+  }
+}

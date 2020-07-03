@@ -1,0 +1,12 @@
+@import '../../../scss/mixins.scss';
+
+.page-title__left {
+  display: flex;
+  align-items: center;
+  @include deskfirst(550) {
+    flex-direction: column;
+  }
+  & > i {
+    margin: 0 20px;
+  }
+}

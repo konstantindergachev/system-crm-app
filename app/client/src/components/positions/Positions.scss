@@ -1,0 +1,24 @@
+.collection {
+  &__none {
+    display: block;
+    text-align: center;
+  }
+  &-item {
+    display: block;
+  }
+}
+
+.position__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // padding: 10px 20px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+  transition: background-color .25s;
+  color: #26a69a;
+  &:hover {
+    background-color: #ddd !important;
+  }
+}

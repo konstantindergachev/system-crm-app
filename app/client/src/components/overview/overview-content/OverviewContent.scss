@@ -1,0 +1,18 @@
+.overview__content {
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 400px;
+    min-height: 400px;
+    position: absolute;
+    right: 20px;
+    bottom: -50vh;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14),
+      0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
+  }
+}
