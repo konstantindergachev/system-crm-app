@@ -8,12 +8,12 @@ const OrderHeader = ({ location, handleOpenOrderModal, btnOff }) => {
     <Fragment>
       <span className="page-title__left">
         <Link to="/order">
-          <h4>Заказ</h4>
+          <h4>Замовлення</h4>
         </Link>
         {location && (
           <Fragment>
             <i className="material-icons">keyboard_arrow_right</i>
-            <h4>Добавить продукцию</h4>
+            <h4>Додати продукцію</h4>
           </Fragment>
         )}
       </span>
@@ -24,7 +24,7 @@ const OrderHeader = ({ location, handleOpenOrderModal, btnOff }) => {
         onClick={handleOpenOrderModal}
         disabled={!btnOff}
       >
-        Завершить
+        Закінчити
       </button>
     </Fragment>
   );

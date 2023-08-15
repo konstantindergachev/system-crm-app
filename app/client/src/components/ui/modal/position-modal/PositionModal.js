@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  createPosition,
-  updatePosition,
-} from '../../../../redux/actions/positionActions';
+import { createPosition, updatePosition } from '../../../../redux/actions/positionActions';
 import TextFieldGroup from '../../text-field-group/TextFieldGroup';
 import './PositionModal.scss';
 
@@ -48,14 +45,7 @@ class PositionModal extends Component {
   };
   handleSubmit = (ev) => {
     ev.preventDefault();
-    const {
-      createPosition,
-      history,
-      token,
-      categoryId,
-      updatePosition,
-      posId,
-    } = this.props;
+    const { createPosition, history, token, categoryId, updatePosition, posId } = this.props;
     const positionData = {
       name: this.state.positionName,
       cost: this.state.cost,
@@ -77,18 +67,12 @@ class PositionModal extends Component {
 
     return (
       <div className={`modal__overlay ${isModal && 'modal__overlay-open'}`}>
-        <form
-          className="modal"
-          style={isModal ? modalStyle : null}
-          onSubmit={this.handleSubmit}
-        >
+        <form className="modal" style={isModal ? modalStyle : null} onSubmit={this.handleSubmit}>
           <div className="modal-content">
-            <h4 className="mb1">
-              {posId ? 'Изменить позицию' : 'Добавить позицию'}
-            </h4>
+            <h4 className="mb1">{posId ? 'Змінити позицію' : 'Додати позицію'}</h4>
             <div className="input-field">
               <TextFieldGroup
-                placeholder="Название"
+                placeholder="Назва"
                 name="positionName"
                 value={positionName}
                 onChange={this.handleChange}
@@ -97,7 +81,7 @@ class PositionModal extends Component {
             </div>
             <div className="input-field">
               <TextFieldGroup
-                placeholder="Цена"
+                placeholder="Ціна"
                 name="cost"
                 value={cost}
                 onChange={this.handleChange}
@@ -111,13 +95,10 @@ class PositionModal extends Component {
               className="modal-action waves-effect waves-black btn-flat"
               onClick={handleClosePositionModal}
             >
-              Отмена
+              Відміна
             </button>
-            <button
-              className="modal-action btn waves-effect"
-              onClick={handleClosePositionModal}
-            >
-              Сохранить
+            <button className="modal-action btn waves-effect" onClick={handleClosePositionModal}>
+              Зберегти
             </button>
           </div>
         </form>
@@ -140,6 +121,4 @@ PositionModal.propTypes = {
 const mapStateToProps = (state) => ({
   errors: state.position,
 });
-export default connect(mapStateToProps, { createPosition, updatePosition })(
-  PositionModal
-);
+export default connect(mapStateToProps, { createPosition, updatePosition })(PositionModal);

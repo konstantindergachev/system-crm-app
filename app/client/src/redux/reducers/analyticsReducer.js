@@ -9,7 +9,7 @@ const initialState = {
   errors: {},
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case TYPES.ANALYTICS_LOADING:
       return {
@@ -24,13 +24,13 @@ export default function(state = initialState, action) {
       };
     case TYPES.GET_ANALYTICS:
       const gainConfig = {
-        label: 'Выручка',
+        label: 'Виторг',
         color: 'rgb(255,99,132)',
       };
       gainConfig.labels = action.payload.data.chart.map((item) => item.label);
       gainConfig.gains = action.payload.data.chart.map((item) => item.gain);
       const orderConfig = {
-        label: 'Заказы',
+        label: 'Замовлення',
         color: 'rgb(54,162,235)',
       };
       orderConfig.labels = action.payload.data.chart.map((item) => item.label);

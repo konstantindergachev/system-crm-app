@@ -66,9 +66,9 @@ class Register extends Component {
           <div className="auth-block">
             <form className="card" onSubmit={this.handleSubmit}>
               <div className="card-content">
-                <span className="card-title">Создать аккаунт</span>
+                <span className="card-title">Створити акаунт</span>
                 <TextFieldGroup
-                  placeholder="Имя:"
+                  placeholder="Ім'я:"
                   name="username"
                   value={username}
                   onChange={this.handleChange}
@@ -92,7 +92,7 @@ class Register extends Component {
                 />
                 <TextFieldGroup
                   type="password"
-                  placeholder="Подтверждение пароля:"
+                  placeholder="Підтвердження пароля:"
                   name="passwordConfirmation"
                   value={passwordConfirmation}
                   onChange={this.handleChange}
@@ -100,9 +100,7 @@ class Register extends Component {
                 />
               </div>
               <div className="card-action">
-                <button className="modal-action btn waves-effect">
-                  Создать
-                </button>
+                <button className="modal-action btn waves-effect">Створити</button>
               </div>
             </form>
           </div>

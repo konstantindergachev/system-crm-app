@@ -71,14 +71,14 @@ class Positions extends Component {
         <div className="col s12">
           {/* {!isModal && msg !== '' && <InfoModal info={msg} />} */}
           <div className="page-subtitle">
-            <h4>Позиции:</h4>
+            <h4>Позиції:</h4>
             <button
               type="button"
               className="waves-effect waves-light btn grey darken-1 btn-small modal-trigger"
               data-target="create-modal"
               onClick={this.handleAddPositionModal}
             >
-              Добавить позицию
+              Додати позицію
             </button>
           </div>
           {isLoading ? (
@@ -87,17 +87,11 @@ class Positions extends Component {
             positions.map(
               (position) =>
                 position.category === categoryId && (
-                  <div
-                    key={position._id}
-                    className="col s12 collection position__wrapper"
-                  >
+                  <div key={position._id} className="col s12 collection position__wrapper">
                     <div
                       onClick={() =>
-                        this.handleUpdatePositionModal(
-                          position._id,
-                          position.name,
-                          position.cost
-                        )}
+                        this.handleUpdatePositionModal(position._id, position.name, position.cost)
+                      }
                     >
                       <div className="collection-item">
                         <span>
@@ -115,7 +109,7 @@ class Positions extends Component {
                 )
             )
           ) : (
-            <span className="collection__none">В категории нет позиций</span>
+            <span className="collection__none">В категорії немає позицій</span>
           )}
         </div>
         <PositionModal

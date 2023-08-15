@@ -20,34 +20,28 @@ class HistoryFilter extends React.Component {
   componentDidMount() {
     if (this.refDatePickerStart.current && this.refDatePickerEnd.current) {
       this.setState({
-        datePickerStart: M.Datepicker.init(
-          this.refDatePickerStart.current.firstElementChild,
-          {
-            format: 'dd.mm.yyyy',
-            showClearBtn: true,
-            onClose: () => {
-              const { datePickerStart, datePickerEnd } = this.state;
-              const isValid = validate(datePickerStart, datePickerEnd);
-              this.setState(() => ({
-                isValid: isValid,
-              }));
-            },
-          }
-        ),
-        datePickerEnd: M.Datepicker.init(
-          this.refDatePickerEnd.current.firstElementChild,
-          {
-            format: 'dd.mm.yyyy',
-            showClearBtn: true,
-            onClose: () => {
-              const { datePickerStart, datePickerEnd } = this.state;
-              const isValid = validate(datePickerStart, datePickerEnd);
-              this.setState(() => ({
-                isValid: isValid,
-              }));
-            },
-          }
-        ),
+        datePickerStart: M.Datepicker.init(this.refDatePickerStart.current.firstElementChild, {
+          format: 'dd.mm.yyyy',
+          showClearBtn: true,
+          onClose: () => {
+            const { datePickerStart, datePickerEnd } = this.state;
+            const isValid = validate(datePickerStart, datePickerEnd);
+            this.setState(() => ({
+              isValid: isValid,
+            }));
+          },
+        }),
+        datePickerEnd: M.Datepicker.init(this.refDatePickerEnd.current.firstElementChild, {
+          format: 'dd.mm.yyyy',
+          showClearBtn: true,
+          onClose: () => {
+            const { datePickerStart, datePickerEnd } = this.state;
+            const isValid = validate(datePickerStart, datePickerEnd);
+            this.setState(() => ({
+              isValid: isValid,
+            }));
+          },
+        }),
       });
     }
   }
@@ -72,14 +66,13 @@ class HistoryFilter extends React.Component {
       <div className="filter js-filter-block">
         <form
           className="fr history__filter"
-          onSubmit={(ev) =>
-            handleSubmit(ev, orderNumber, datePickerStart, datePickerEnd)}
+          onSubmit={(ev) => handleSubmit(ev, orderNumber, datePickerStart, datePickerEnd)}
         >
           <div className="col order">
             <div className="input-field inline order-position-input">
               <TextFieldGroup
                 type="number"
-                placeholder="Номер заказа"
+                placeholder="Номер замовлення"
                 name="orderNumber"
                 value={this.state.orderNumber}
                 onChange={this.handleChange}
@@ -89,11 +82,11 @@ class HistoryFilter extends React.Component {
           </div>
           <div className="col filter-pickers">
             <div className="input-field" ref={this.refDatePickerStart}>
-              <TextFieldGroup name="start" placeholder="Начало (дата)" />
+              <TextFieldGroup name="start" placeholder="Початок (дата)" />
             </div>
 
             <div className="input-field" ref={this.refDatePickerEnd}>
-              <TextFieldGroup name="end" placeholder="Конец (дата)" />
+              <TextFieldGroup name="end" placeholder="Кінець (дата)" />
             </div>
           </div>
           <button
@@ -101,7 +94,7 @@ class HistoryFilter extends React.Component {
             className="btn waves-effect wavers-light btn-small"
             disabled={isValid}
           >
-            Применить фильтр
+            Застосувати фільтр
           </button>
         </form>
       </div>

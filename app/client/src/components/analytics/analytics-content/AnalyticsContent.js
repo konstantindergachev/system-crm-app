@@ -14,19 +14,13 @@ class AnalyticsContent extends PureComponent {
   }
   componentDidMount() {
     const { gainConfig, orderConfig } = this.props;
-    if (
-      Object.keys(gainConfig).length > 0 &&
-      Object.keys(orderConfig).length > 0
-    ) {
+    if (Object.keys(gainConfig).length > 0 && Object.keys(orderConfig).length > 0) {
       this.buildChart(gainConfig, orderConfig);
     }
   }
   componentDidUpdate() {
     const { gainConfig, orderConfig } = this.props;
-    if (
-      Object.keys(gainConfig).length > 0 &&
-      Object.keys(orderConfig).length > 0
-    ) {
+    if (Object.keys(gainConfig).length > 0 && Object.keys(orderConfig).length > 0) {
       this.buildChart(gainConfig, orderConfig);
     }
   }
@@ -34,22 +28,14 @@ class AnalyticsContent extends PureComponent {
   buildChart = (gainConfig, orderConfig) => {
     const refGainLink = this.refGainChart.current.getContext('2d');
     const refOrderLink = this.refOrderChart.current.getContext('2d');
-    if (
-      typeof lineGainChart !== 'undefined' ||
-      typeof lineOrderChart !== 'undefined'
-    ) {
+    if (typeof lineGainChart !== 'undefined' || typeof lineOrderChart !== 'undefined') {
       lineGainChart.destroy();
       lineOrderChart.destroy();
     }
 
     lineGainChart = new Chart(
       refGainLink,
-      createChartConfig(
-        gainConfig.labels,
-        gainConfig.label,
-        gainConfig.gains,
-        gainConfig.color
-      )
+      createChartConfig(gainConfig.labels, gainConfig.label, gainConfig.gains, gainConfig.color)
     );
     lineOrderChart = new Chart(
       refOrderLink,
@@ -67,23 +53,23 @@ class AnalyticsContent extends PureComponent {
     return (
       <Fragment>
         <div className="page-title">
-          <h4>Аналитика</h4>
+          <h4>Аналітика</h4>
         </div>
 
         <div className="average-price">
           <p>
-            Средний чек: <strong>{average} грн.</strong>
+            Середній чек: <strong>{average} грн.</strong>
           </p>
         </div>
 
         <div className="analytics-block pb3">
-          <h5>Выручка:</h5>
+          <h5>Виторг:</h5>
           <div className="linechart__container">
             <canvas ref={this.refGainChart} />
           </div>
         </div>
         <div className="analytics-block pb3">
-          <h5>Заказы:</h5>
+          <h5>Замовлення:</h5>
           <div className="linechart__container">
             <canvas ref={this.refOrderChart} />
           </div>

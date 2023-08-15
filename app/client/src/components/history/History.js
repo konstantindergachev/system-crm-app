@@ -35,11 +35,7 @@ class History extends PureComponent {
   }
 
   static getDerivedStateFromProps(props, prevState) {
-    if (
-      prevState.isFilteredOrders &&
-      !prevState.isFilterOpen &&
-      props.history.length === 0
-    ) {
+    if (prevState.isFilteredOrders && !prevState.isFilterOpen && props.history.length === 0) {
       return {
         orders: props.history,
       };
@@ -61,12 +57,9 @@ class History extends PureComponent {
       };
     } else if (props.orders.length === props.history.length) {
       return {
-        orders: [ ...props.orders, ...props.history ],
+        orders: [...props.orders, ...props.history],
       };
-    } else if (
-      prevState.orders.length < props.history.length &&
-      !prevState.isFilteredOrders
-    ) {
+    } else if (prevState.orders.length < props.history.length && !prevState.isFilteredOrders) {
       return {
         orders: props.history,
       };
@@ -140,20 +133,16 @@ class History extends PureComponent {
     const { isAuth, username, logOutClick, orders } = this.props;
     return (
       <Fragment>
-        <Sidebar
-          isAuth={isAuth}
-          username={username}
-          logOutClick={logOutClick}
-        />
+        <Sidebar isAuth={isAuth} username={username} logOutClick={logOutClick} />
 
         <Content
-          orders={ord.length === 0 ? orders : [ ...ord ]}
+          orders={ord.length === 0 ? orders : [...ord]}
           handleSubmit={this.handleSubmit}
           handleHistoryModalOpen={this.handleHistoryModalOpen}
           isFilteredOrders={isFilteredOrders}
           isFilterOpen={isFilterOpen}
           openFilter={this.openFilter}
-          noOrders={orders.length === 0 && 'Заказов пока нет'}
+          noOrders={orders.length === 0 && 'Замовлень поки немає'}
         />
 
         {isHistoryModalOpen && (
@@ -188,6 +177,4 @@ const mapStateToProps = (state) => ({
   history: state.history.historyOfOrders,
   offset: state.history.offset,
 });
-export default connect(mapStateToProps, { getAllOrders, getHistoryOfOrders })(
-  History
-);
+export default connect(mapStateToProps, { getAllOrders, getHistoryOfOrders })(History);

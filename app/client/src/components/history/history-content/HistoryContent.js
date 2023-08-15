@@ -52,14 +52,13 @@ class HistoryContent extends PureComponent {
     return (
       <Fragment>
         <div className="page-title">
-          <h4>История заказов</h4>
+          <h4>Історія замовлень</h4>
           <button
             ref={this.refTooltip}
-            className={`btn btn-small js-filter tooltipped ${isFilteredOrders &&
-              'filter__btn-active'}`}
-            data-tooltip={`${isFilterOpen
-              ? 'Закрыть фильтр'
-              : 'Открыть фильтр'}`}
+            className={`btn btn-small js-filter tooltipped ${
+              isFilteredOrders && 'filter__btn-active'
+            }`}
+            data-tooltip={`${isFilterOpen ? 'Закрити фільтр' : 'Відкрити фільтр'}`}
             data-position="left"
             onClick={openFilter}
           >
@@ -77,8 +76,8 @@ class HistoryContent extends PureComponent {
               <tr>
                 <th>№</th>
                 <th>Дата</th>
-                <th>Время</th>
-                <th>Сумма</th>
+                <th>Час</th>
+                <th>Сума</th>
                 <th />
               </tr>
             </thead>
@@ -102,11 +101,8 @@ class HistoryContent extends PureComponent {
           {isLoading ? (
             <Spinner />
           ) : !isComplete && !isFilterOpen ? (
-            <button
-              className="btn waves-effect grey darken-1 btn-small"
-              onClick={handleSubmit}
-            >
-              Загрузить еще
+            <button className="btn waves-effect grey darken-1 btn-small" onClick={handleSubmit}>
+              Завантажити ще
             </button>
           ) : (
             ''
@@ -121,10 +117,7 @@ HistoryContent.propTypes = {
   isComplete: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isLoadAfterFiltering: PropTypes.bool.isRequired,
-  noOrders: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.bool.isRequired,
-  ]),
+  noOrders: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.bool.isRequired]),
   orders: PropTypes.array.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   handleHistoryModalOpen: PropTypes.func.isRequired,

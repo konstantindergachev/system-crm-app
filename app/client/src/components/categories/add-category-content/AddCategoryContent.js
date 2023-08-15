@@ -7,10 +7,7 @@ import {
   deleteCategory,
   updateCategory,
 } from '../../../redux/actions/categoryActions';
-import {
-  deletePosition,
-  getPositionOfCategory,
-} from '../../../redux/actions/positionActions';
+import { deletePosition, getPositionOfCategory } from '../../../redux/actions/positionActions';
 import {
   removeCategoryImage,
   uploadCategoryImage,
@@ -33,7 +30,10 @@ class AddCategoryContent extends Component {
     };
   }
   componentDidMount() {
-    const { getPositionOfCategory, location: { state } } = this.props;
+    const {
+      getPositionOfCategory,
+      location: { state },
+    } = this.props;
     const token = localStorage.getItem('jwtToken');
     this.setState({ token });
     if (state) {
@@ -42,7 +42,9 @@ class AddCategoryContent extends Component {
   }
 
   static getDerivedStateFromProps(props, prevState) {
-    const { location: { state } } = props;
+    const {
+      location: { state },
+    } = props;
     if (state && prevState.name === '') {
       return {
         name: state.category.name,
@@ -71,7 +73,7 @@ class AddCategoryContent extends Component {
     const file = ev.target.files[0];
     const pattern = /image-*/;
     if (!file.type.match(pattern)) {
-      alert('Формат картинки недоступен! Выберите другой формат.');
+      alert('Формат картинки недоступний! Виберіть інший формат.');
     }
     reader.onloadend = () => {
       this.setState({
@@ -140,7 +142,7 @@ class AddCategoryContent extends Component {
     const { name, imgPreviewUrl, info } = this.state;
     if (!category) {
       if (imgPreviewUrl) {
-        if (info === 'Файл успешно сохранен!') {
+        if (info === 'Файл успішно збережено!') {
           return (
             <Fragment>
               <button
@@ -150,33 +152,17 @@ class AddCategoryContent extends Component {
               >
                 <i className="material-icons">delete</i>
               </button>
-              <img
-                className="responsive-img category__img"
-                src={imgPreviewUrl}
-                alt={name}
-              />
+              <img className="responsive-img category__img" src={imgPreviewUrl} alt={name} />
             </Fragment>
           );
         } else {
-          return (
-            <img
-              className="responsive-img category__img"
-              src={imgPreviewUrl}
-              alt={name}
-            />
-          );
+          return <img className="responsive-img category__img" src={imgPreviewUrl} alt={name} />;
         }
       } else {
         return <div className="category__img-empty" />;
       }
     } else {
-      return (
-        <img
-          className="responsive-img category__img"
-          src={category.imageSrc}
-          alt={name}
-        />
-      );
+      return <img className="responsive-img category__img" src={category.imageSrc} alt={name} />;
     }
   };
 
@@ -196,13 +182,9 @@ class AddCategoryContent extends Component {
       <Fragment>
         <div className="page-title">
           <h4>
-            <Link to="/categories">Категории</Link>
+            <Link to="/categories">Категорії</Link>
             <i className="material-icons">keyboard_arrow_right</i>
-            {typeof path === 'string' ? (
-              'Добавить категорию'
-            ) : (
-              'Изменить категорию'
-            )}
+            {typeof path === 'string' ? 'Додати категорію' : 'Змінити категорію'}
           </h4>
           {typeof path !== 'string' && (
             <span>
@@ -220,7 +202,7 @@ class AddCategoryContent extends Component {
           <div className="col s12 l6">
             <label className="input-field">
               <TextFieldGroup
-                placeholder="Название"
+                placeholder="Назва"
                 name="name"
                 value={name}
                 error={errors.name}
@@ -243,22 +225,14 @@ class AddCategoryContent extends Component {
               disabled={selectedFile ? false : true}
             >
               <i className="material-icons left">backup</i>
-              Сохранить
+              Зберегти
             </button>
-            <button
-              type="submit"
-              className="waves-effect waves-light btn"
-              disabled={!isSended}
-            >
-              Сохранить изменения
+            <button type="submit" className="waves-effect waves-light btn" disabled={!isSended}>
+              Зберегти зміни
             </button>
           </div>
           <div className="col s12 l4 center">
-            {!state ? (
-              this.renderPrevCategoryImage()
-            ) : (
-              this.renderPrevCategoryImage(state.category)
-            )}
+            {!state ? this.renderPrevCategoryImage() : this.renderPrevCategoryImage(state.category)}
           </div>
         </form>
         {typeof path !== 'string' && (

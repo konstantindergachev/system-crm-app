@@ -8,23 +8,23 @@ import './Sidebar.scss';
 const sidebar = [
   {
     link: '/overview',
-    name: 'Обзор',
+    name: 'Огляд',
   },
   {
     link: '/analytics',
-    name: 'Аналитика',
+    name: 'Аналітика',
   },
   {
     link: '/history',
-    name: 'История',
+    name: 'Історія',
   },
   {
     link: '/order',
-    name: 'Добавить заказ',
+    name: 'Додати замовлення',
   },
   {
     link: '/categories',
-    name: 'Ассортимент',
+    name: 'Асортимент',
   },
 ];
 
@@ -47,9 +47,7 @@ const Sidebar = ({ isAuth, username, logOutClick }) => {
         </li>
       ))}
       <li className="bold last">
-        {isAuth && (
-          <Logout isSidebar username={username} logOutClick={logOutClick} />
-        )}
+        {isAuth && <Logout isSidebar username={username} logOutClick={logOutClick} />}
       </li>
     </ul>
   );

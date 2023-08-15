@@ -47,7 +47,7 @@ const TableItem = (props) => {
               disabled={quantity < 1 && true}
               onClick={() => handleAddPositionToOrder(id, name, cost, quantity)}
             >
-              Добавить
+              Додати
             </button>
           </td>
         </Fragment>

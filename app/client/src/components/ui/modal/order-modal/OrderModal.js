@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  createOrder,
-  updateOrder,
-} from '../../../../redux/actions/orderActions';
+import { createOrder, updateOrder } from '../../../../redux/actions/orderActions';
 import Table from '../../table/Table';
 import './OrderModal.scss';
 
@@ -44,22 +41,13 @@ class OrderModal extends Component {
   };
   render() {
     const { totalSum } = this.props;
-    const {
-      list,
-      orderQuantity,
-      handleCloseOrderModal,
-      isModal,
-      handleRemovePositionFromOrder,
-    } = this.props;
+    const { list, orderQuantity, handleCloseOrderModal, isModal, handleRemovePositionFromOrder } =
+      this.props;
     return (
       <div className={`modal__overlay ${isModal && 'modal__overlay-open'}`}>
-        <form
-          className="modal"
-          style={isModal ? modalStyle : null}
-          onSubmit={this.handleSubmit}
-        >
+        <form className="modal" style={isModal ? modalStyle : null} onSubmit={this.handleSubmit}>
           <div className="modal-content">
-            <h4 className="mb1">Ваш заказ</h4>
+            <h4 className="mb1">Ваше замовлення</h4>
             <Table
               positions={list}
               orderQuantity={orderQuantity}
@@ -68,7 +56,7 @@ class OrderModal extends Component {
             />
             <div className="order-summary">
               <p>
-                Общая стоимость: <strong>{totalSum} грн.</strong>
+                Загальна вартість: <strong>{totalSum} грн.</strong>
               </p>
             </div>
           </div>
@@ -78,14 +66,14 @@ class OrderModal extends Component {
               className="modal-action waves-effect waves-black btn-flat"
               onClick={handleCloseOrderModal}
             >
-              Отмена
+              Відміна
             </button>
             <button
               type="submit"
               className="modal-action btn waves-effect"
               disabled={totalSum === 0}
             >
-              Подтвердить
+              Підтвердити
             </button>
           </div>
         </form>
@@ -110,6 +98,4 @@ const mapStateToProps = (state) => ({
   errors: state.order,
   totalSum: state.order.totalSum,
 });
-export default connect(mapStateToProps, { createOrder, updateOrder })(
-  OrderModal
-);
+export default connect(mapStateToProps, { createOrder, updateOrder })(OrderModal);

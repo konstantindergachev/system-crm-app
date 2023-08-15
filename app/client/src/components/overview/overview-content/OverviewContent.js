@@ -3,18 +3,12 @@ import React, { Fragment } from 'react';
 import Spinner from '../../ui/spinner/Spinner';
 import './OverviewContent.scss';
 
-const OverviewContent = ({
-  yesterday,
-  gain,
-  orders,
-  isTapTarget,
-  handleInfo,
-}) => {
+const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) => {
   return (
     <Fragment>
       <div className="page-title">
         <h4>
-          Обзор за вчера ({yesterday}){' '}
+          Огляд за вчора ({yesterday}){' '}
           <i className="material-icons black-text pointer" onClick={handleInfo}>
             info_outline
           </i>
@@ -25,22 +19,17 @@ const OverviewContent = ({
           <div className="col s12 l6">
             <div className="card light-blue lighten-2 white-text">
               <div className="card-content">
-                <span className="card-title">Выручка:</span>
+                <span className="card-title">Виторг:</span>
                 <h3>{gain.yesterday} грн.</h3>
-                <h3
-                  className={`${gain.isHigher
-                    ? 'green-text text-darken-2'
-                    : 'red-text'} m0 mb1`}
-                >
+                <h3 className={`${gain.isHigher ? 'green-text text-darken-2' : 'red-text'} m0 mb1`}>
                   <i className="material-icons">
                     {gain.isHigher ? 'arrow_upward' : 'arrow_downward'}
                   </i>
                   {gain.percent}%
                 </h3>
                 <p>
-                  Выручка вашего бизнеса вчера на {gain.percent}%{' '}
-                  {gain.isHigher ? 'выше' : 'ниже'} среднего: {gain.compare}{' '}
-                  грн. в день
+                  Виторг вашого бізнесу вчора на {gain.percent}% {gain.isHigher ? 'вище' : 'нижче'}{' '}
+                  середнього: {gain.compare} грн. в день
                 </p>
               </div>
             </div>
@@ -49,12 +38,10 @@ const OverviewContent = ({
           <div className="col s12 l6">
             <div className="card orange lighten-2 white-text">
               <div className="card-content">
-                <span className="card-title">Заказы:</span>
-                <h3>{orders.yesterday} зак.</h3>
+                <span className="card-title">Замовлення:</span>
+                <h3>{orders.yesterday} зам.</h3>
                 <h3
-                  className={`${orders.isHigher
-                    ? 'green-text text-darken-2'
-                    : 'red-text'} m0 mb1`}
+                  className={`${orders.isHigher ? 'green-text text-darken-2' : 'red-text'} m0 mb1`}
                 >
                   <i className="material-icons">
                     {orders.isHigher ? 'arrow_upward' : 'arrow_downward'}
@@ -62,9 +49,8 @@ const OverviewContent = ({
                   {orders.percent}%
                 </h3>
                 <p>
-                  Число заказов вчера на {orders.percent}%{' '}
-                  {orders.isHigher ? 'выше' : 'ниже'} среднего значения:{' '}
-                  {orders.compare} зак. в день
+                  Число замовлень вчора на {orders.percent}% {orders.isHigher ? 'вище' : 'нижче'}{' '}
+                  середнього значення: {orders.compare} зам. в день
                 </p>
               </div>
             </div>
@@ -76,11 +62,10 @@ const OverviewContent = ({
 
       {isTapTarget && (
         <div className="overview__content-wrap">
-          <h5 className="overview__content-title">Зачем нужна эта страница?</h5>
+          <h5 className="overview__content-title">Навіщо потрібна ця сторінка?</h5>
           <p className="overview__content-text">
-            Страница “Обзор” покажет динамику продаж за предыдущий день.
-            Сравнение со средним значениями поможет вам понять, как идут дела у
-            Вашего бизнеса.
+            Сторінка "Огляд" покаже динаміку продажів за попередній день. Порівняння із середніми
+            значеннями допоможе вам зрозуміти, як йдуть справи у Вашого бізнесу.
           </p>
         </div>
       )}

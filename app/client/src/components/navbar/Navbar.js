@@ -5,7 +5,10 @@ import Logout from '../auth/logout/Logout';
 import Logo from '../logo/Logo';
 import './Navbar.scss';
 
-const menu = [ { id: 1, name: 'login' }, { id: '2', name: 'registration' } ];
+const menu = [
+  { id: 1, name: 'login' },
+  { id: '2', name: 'registration' },
+];
 
 const Navbar = ({ isAuth, username, logOutClick }) => {
   return (
@@ -19,7 +22,7 @@ const Navbar = ({ isAuth, username, logOutClick }) => {
             menu.map((item) => (
               <li key={item.id} className="menu__item">
                 <NavLink to={`/${item.name}`} exact activeClassName="current">
-                  {item.name === 'login' ? 'вход' : item.name === 'registration' ? 'регистрация' : ''}
+                  {item.name === 'login' ? 'вхід' : item.name === 'registration' && 'реєстрація'}
                 </NavLink>
               </li>
             ))

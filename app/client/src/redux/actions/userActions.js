@@ -16,7 +16,7 @@ export const registerUser = (userData, history) => async (dispatch) => {
     const data = await response.json();
     dispatch({
       type: TYPES.REGISTER_USER,
-      payload: { data, info: 'Ваша регистрация успешна.' },
+      payload: { data, info: 'Ваша реєстрація успішна.' },
     });
     if (data.hasOwnProperty('role')) {
       history.push('/login');

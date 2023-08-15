@@ -12,28 +12,18 @@ const modalStyle = {
   top: '10%',
   transform: 'scaleX(1) scaleY(1)',
 };
-const HistoryModal = ({
-  isHistoryModalOpen,
-  selectedOrderList,
-  handleCloseHistoryModal,
-}) => {
+const HistoryModal = ({ isHistoryModalOpen, selectedOrderList, handleCloseHistoryModal }) => {
   return (
-    <div
-      className={`modal__overlay ${isHistoryModalOpen &&
-        'modal__overlay-open'}`}
-    >
-      <div
-        className="modal modal-fixed-footer"
-        style={isHistoryModalOpen ? modalStyle : null}
-      >
+    <div className={`modal__overlay ${isHistoryModalOpen && 'modal__overlay-open'}`}>
+      <div className="modal modal-fixed-footer" style={isHistoryModalOpen ? modalStyle : null}>
         <div className="modal-content">
-          <h4 className="mb1">Заказ №{selectedOrderList.order}</h4>
+          <h4 className="mb1">Замовлення №{selectedOrderList.order}</h4>
           <table className="highlight">
             <thead>
               <tr>
-                <th>Название</th>
-                <th>Количество</th>
-                <th>Цена</th>
+                <th>Назва</th>
+                <th>Кількість</th>
+                <th>Ціна</th>
               </tr>
             </thead>
             {selectedOrderList.list.map((list) => (
@@ -47,8 +37,7 @@ const HistoryModal = ({
           </table>
           <div className="order-summary order-summary__total-cost">
             <p>
-              Общая стоимость:{' '}
-              <strong>{getTotalSum(selectedOrderList.list)}грн.</strong>
+              Загальна вартість: <strong>{getTotalSum(selectedOrderList.list)}грн.</strong>
             </p>
           </div>
         </div>
@@ -57,7 +46,7 @@ const HistoryModal = ({
             className="modal-action waves-effect waves-black btn-flat"
             onClick={handleCloseHistoryModal}
           >
-            Закрыть
+            Закрити
           </button>
         </div>
       </div>

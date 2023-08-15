@@ -8,11 +8,8 @@ const Logout = ({ isSidebar, username, logOutClick }) => {
     return (
       <Fragment>
         <span className="logout__username-sidebar">{username}</span>
-        <span
-          className="logout__exit logout__exit-sidebar"
-          onClick={logOutClick}
-        >
-          Выйти
+        <span className="logout__exit logout__exit-sidebar" onClick={logOutClick}>
+          Вийти
         </span>
       </Fragment>
     );
@@ -21,7 +18,7 @@ const Logout = ({ isSidebar, username, logOutClick }) => {
     <div className="logout">
       <span className="logout__username">{username}</span>
       <span className="logout__exit" onClick={logOutClick}>
-        Выйти
+        Вийти
       </span>
     </div>
   );

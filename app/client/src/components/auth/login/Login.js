@@ -61,7 +61,7 @@ class Login extends Component {
             {/* {info !== '' && M.toast({ html: 'I am a toast!' })} */}
             <form className="card" onSubmit={this.handleSubmit}>
               <div className="card-content">
-                <span className="card-title">Войти в систему</span>
+                <span className="card-title">Увійти до системи</span>
                 <TextFieldGroup
                   type="email"
                   placeholder="Email:"
@@ -80,7 +80,7 @@ class Login extends Component {
                 />
               </div>
               <div className="card-action">
-                <button className="modal-action btn waves-effect">Войти</button>
+                <button className="modal-action btn waves-effect">Увійти</button>
               </div>
             </form>
           </div>
