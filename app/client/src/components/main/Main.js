@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Footer from '../../layout/footer/Footer';
 import Navbar from '../navbar/Navbar';
 import { HOME } from '../../constants';
+import { uuid } from '../../helpers/uuid';
 
 import './Main.scss';
 
@@ -17,8 +18,8 @@ const Main = ({ isAuth, username, logOutClick }) => {
         </h2>
         <div className="col s12 m5">
           <div className="card-panel grey darken-1">
-            {HOME.SECTION_ONE.map((item, idx) => (
-              <p className="white-text" key={idx}>
+            {HOME.SECTION_ONE.map((item) => (
+              <p className="white-text" key={uuid()}>
                 {item}
               </p>
             ))}
@@ -26,10 +27,10 @@ const Main = ({ isAuth, username, logOutClick }) => {
         </div>
         <h4>{HOME.TITLE}</h4>
         <div className="row">
-          {HOME.SECTION_TWO.map((item, idx) => {
+          {HOME.SECTION_TWO.map((item) => {
             return (
-              <div className="col s12 m5">
-                <div className="card-panel grey darken-1" key={idx}>
+              <div className="col s12 m5" key={uuid()}>
+                <div className="card-panel grey darken-1">
                   <h5 className="white-text">{item.SUBTITLE}</h5>
                   <p className="white-text">{item.DESCRIPTION}</p>
                 </div>

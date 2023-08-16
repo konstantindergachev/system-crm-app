@@ -3,30 +3,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logout from '../auth/logout/Logout';
 import Logo from '../logo/Logo';
+import { sidebar } from './settings';
 import './Sidebar.scss';
-
-const sidebar = [
-  {
-    link: '/overview',
-    name: 'Огляд',
-  },
-  {
-    link: '/analytics',
-    name: 'Аналітика',
-  },
-  {
-    link: '/history',
-    name: 'Історія',
-  },
-  {
-    link: '/order',
-    name: 'Додати замовлення',
-  },
-  {
-    link: '/categories',
-    name: 'Асортимент',
-  },
-];
 
 const Sidebar = ({ isAuth, username, logOutClick }) => {
   return (
