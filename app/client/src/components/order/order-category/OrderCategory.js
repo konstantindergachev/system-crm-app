@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import OrderModal from '../../ui/modal/order-modal/OrderModal';
 import Spinner from '../../ui/spinner/Spinner';
 import OrderHeader from '../order-header/OrderHeader';
+
 import './OrderCategory.scss';
 
 const OrderCategory = (props) => {
@@ -20,10 +21,7 @@ const OrderCategory = (props) => {
   return (
     <Fragment>
       <div className="page-title">
-        <OrderHeader
-          handleOpenOrderModal={handleOpenOrderModal}
-          btnOff={btnOff}
-        />
+        <OrderHeader handleOpenOrderModal={handleOpenOrderModal} btnOff={btnOff} />
       </div>
       <div className="frow order-row">
         {categories.map((category) => (
@@ -42,11 +40,7 @@ const OrderCategory = (props) => {
               {isLoading ? (
                 <Spinner />
               ) : (
-                <img
-                  src={category.imageSrc}
-                  className="responsive-img order-img"
-                  alt="Cake"
-                />
+                <img src={category.imageSrc} className="responsive-img order-img" alt="Cake" />
               )}
             </div>
             <div className="card-content center p10">
@@ -55,11 +49,7 @@ const OrderCategory = (props) => {
           </Link>
         ))}
       </div>
-      <OrderModal
-        list={list}
-        isModal={isModal}
-        handleCloseOrderModal={handleCloseOrderModal}
-      />
+      <OrderModal list={list} isModal={isModal} handleCloseOrderModal={handleCloseOrderModal} />
     </Fragment>
   );
 };

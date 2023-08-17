@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Logout from '../auth/logout/Logout';
 import Logo from '../logo/Logo';
 import { sidebar } from './settings';
+
 import './Sidebar.scss';
 
 const Sidebar = ({ isAuth, username, logOutClick }) => {

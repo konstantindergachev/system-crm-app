@@ -5,9 +5,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './App';
 import setAuthToken from './helpers/setAuthToken';
-import './index.scss';
 import { logoutUser, setUser } from './redux/actions/userActions';
 import store from './store';
+
+import './index.scss';
 
 if (localStorage.jwtToken) {
   // Set auth token header auth

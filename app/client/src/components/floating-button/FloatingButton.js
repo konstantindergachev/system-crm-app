@@ -1,6 +1,7 @@
 import M from 'materialize-css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import './FloatingButton.scss';
 
 class FloatingButton extends Component {

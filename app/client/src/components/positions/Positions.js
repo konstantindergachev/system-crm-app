@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
 import PositionModal from '../ui/modal/position-modal/PositionModal';
-// import InfoModal from '../ui/modal/info-modal/InfoModal';
 import Spinner from '../ui/spinner/Spinner';
+
 import './Positions.scss';
 
 class Positions extends Component {
@@ -15,20 +15,6 @@ class Positions extends Component {
       positionCost: '',
     };
   }
-
-  // componentDidMount() {
-  //   this.isShowedTimer = setTimeout(() => {
-  //     this.setState((oldState) => ({ isModal: !oldState.isModal }));
-  //     this.isShowedTimer = 0;
-  //   }, 2500);
-  // }
-
-  // componentWillUnmount() {
-  //   if (this.isShowedTimer) {
-  //     clearTimeout(this.isShowedTimer);
-  //     this.isShowedTimer = 0;
-  //   }
-  // }
 
   static getDerivedStateFromProps(props, prevState) {
     if (prevState.positionId) {
@@ -58,18 +44,10 @@ class Positions extends Component {
   };
   render() {
     const { isModal, positionId, positionName, positionCost } = this.state;
-    const {
-      token,
-      categoryId,
-      isLoading,
-      positions,
-      history,
-      // msg,
-    } = this.props;
+    const { token, categoryId, isLoading, positions, history } = this.props;
     return (
       <Fragment>
         <div className="col s12">
-          {/* {!isModal && msg !== '' && <InfoModal info={msg} />} */}
           <div className="page-subtitle">
             <h4>Позиції:</h4>
             <button

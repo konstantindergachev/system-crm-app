@@ -2,15 +2,13 @@ import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { changeCountOfProduct } from '../../../helpers/changeCountOfProduct';
-import {
-  formTheOrder,
-  removePositionFromOrder,
-} from '../../../redux/actions/orderActions';
+import { formTheOrder, removePositionFromOrder } from '../../../redux/actions/orderActions';
 import { getPositionOfCategory } from '../../../redux/actions/positionActions';
 import FloatingButton from '../../floating-button/FloatingButton';
 import OrderModal from '../../ui/modal/order-modal/OrderModal';
 import Table from '../../ui/table/Table';
 import OrderHeader from '../order-header/OrderHeader';
+
 import './OrderPosition.scss';
 
 class OrderPosition extends Component {
@@ -38,7 +36,9 @@ class OrderPosition extends Component {
   componentDidMount() {
     const {
       getPositionOfCategory,
-      location: { state: { categoryId, token } },
+      location: {
+        state: { categoryId, token },
+      },
     } = this.props;
     getPositionOfCategory(categoryId, token);
   }
@@ -50,7 +50,9 @@ class OrderPosition extends Component {
       },
       () => {
         const { number } = this.state;
-        const { positions: { positions } } = this.props;
+        const {
+          positions: { positions },
+        } = this.props;
         const updPositions = changeCountOfProduct(id, number, positions);
         this.setState({
           updPos: updPositions,
@@ -82,7 +84,12 @@ class OrderPosition extends Component {
 
   render() {
     const { isModal, number, positionId, updPos, btnOff } = this.state;
-    const { list, location, positions: { positions }, history } = this.props;
+    const {
+      list,
+      location,
+      positions: { positions },
+      history,
+    } = this.props;
     return (
       <Fragment>
         <div className="page-title">

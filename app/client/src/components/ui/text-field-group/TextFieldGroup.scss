@@ -1,42 +1,4 @@
-// .form__group {
-//   display: flex;
-//   align-items: flex-start;
-// }
-
-// .form__control {
-//   width: 100%;
-//   font-family: inherit;
-//   padding: 6px 12px;
-//   line-height: 1.7;
-//   color: #495057;
-//   background-color: #fff;
-//   background-clip: padding-box;
-//   border: 1px solid #ced4da;
-//   border-radius: 5px;
-//   overflow: visible;
-//   transition: all .3s ease-in-out;
-//   &:focus {
-//     color: #495057;
-//     background-color: #fff;
-//     border-color: #80bdff;
-//     outline: 0;
-//     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
-//   }
-//   &-create-dish {
-//     margin-top: 20px;
-//   }
-//   &-search-dish,
-//   &-register-admin,
-//   &-login-admin {
-//     margin-bottom: 20px;
-//   }
-// }
-
-// .text-muted {
-//   margin-bottom: 10px;
-// }
-
-input[type="file"] {
+input[type='file'] {
   position: relative;
   &::-webkit-file-upload-button {
     visibility: hidden;

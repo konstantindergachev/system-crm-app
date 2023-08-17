@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import Spinner from '../../ui/spinner/Spinner';
+
 import './OverviewContent.scss';
 
 const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) => {

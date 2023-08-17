@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { validate } from '../../../helpers/dateFilter';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
+
 import './HistoryFilter.scss';
 
 class HistoryFilter extends React.Component {

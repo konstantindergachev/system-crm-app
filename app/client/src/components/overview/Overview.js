@@ -6,6 +6,7 @@ import Content from '../content/Content';
 import FloatingButton from '../floating-button/FloatingButton';
 import InformButton from '../inform-button/InformButton';
 import Sidebar from '../sidebar/Sidebar';
+
 import './Overview.scss';
 
 class Overview extends Component {
@@ -26,22 +27,11 @@ class Overview extends Component {
     }));
   };
   render() {
-    const {
-      isAuth,
-      username,
-      logOutClick,
-      gain,
-      orders,
-      yesterday,
-    } = this.props;
+    const { isAuth, username, logOutClick, gain, orders, yesterday } = this.props;
     const { isTapTarget } = this.state;
     return (
       <Fragment>
-        <Sidebar
-          isAuth={isAuth}
-          username={username}
-          logOutClick={logOutClick}
-        />
+        <Sidebar isAuth={isAuth} username={username} logOutClick={logOutClick} />
         <Content
           yesterday={yesterday}
           gain={gain}

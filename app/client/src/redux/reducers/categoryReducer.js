@@ -1,7 +1,6 @@
 import { TYPES } from '../category-types';
 
 const initialState = {
-  // btnOff: true,
   categories: [],
   category: {},
   isLoading: false,
@@ -10,7 +9,7 @@ const initialState = {
   errors: {},
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case TYPES.CATEGORIES_LOADING:
       return {

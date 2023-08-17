@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createOrder, updateOrder } from '../../../../redux/actions/orderActions';
 import Table from '../../table/Table';
+
 import './OrderModal.scss';
 
 const modalStyle = {

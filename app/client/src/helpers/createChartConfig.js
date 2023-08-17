@@ -2,7 +2,6 @@ export const createChartConfig = (labels, label, data, color) => {
   return {
     type: 'line',
     data: {
-      //Получаем данные
       labels: labels,
       datasets: [
         {
@@ -15,7 +14,6 @@ export const createChartConfig = (labels, label, data, color) => {
       ],
     },
     options: {
-      //Настраиваем чарт
       responsive: true,
     },
   };

@@ -33,16 +33,12 @@ export const getOneCategory = (token) => {
   return async (dispatch) => {
     try {
       dispatch(categoryLoading());
-      const response = await fetch(
-        // 'https://my.api.mockaroo.com/lambda-restaurant.json?key=b8bcf1b0'
-        '/api/categories/category/:id',
-        {
-          method: 'GET',
-          headers: {
-            Authorization: token,
-          },
-        }
-      );
+      const response = await fetch('/api/categories/category/:id', {
+        method: 'GET',
+        headers: {
+          Authorization: token,
+        },
+      });
       const data = await response.json();
       dispatch({
         type: TYPES.GET_CATEGORY,

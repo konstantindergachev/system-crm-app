@@ -5,6 +5,7 @@ import { getAllCategories } from '../../redux/actions/categoryActions';
 import Content from '../content/Content';
 import FloatingButton from '../floating-button/FloatingButton';
 import Sidebar from '../sidebar/Sidebar';
+
 import './Categories.scss';
 
 class Categories extends Component {
@@ -18,11 +19,7 @@ class Categories extends Component {
 
     return (
       <Fragment>
-        <Sidebar
-          isAuth={isAuth}
-          username={username}
-          logOutClick={logOutClick}
-        />
+        <Sidebar isAuth={isAuth} username={username} logOutClick={logOutClick} />
         <Content isLoading={isLoading} categories={categories} />
         <FloatingButton />
       </Fragment>

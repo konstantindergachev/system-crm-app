@@ -14,6 +14,7 @@ import {
 } from '../../../redux/actions/uploadImageActions';
 import Positions from '../../positions/Positions';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
+
 import './AddCategoryContent.scss';
 
 class AddCategoryContent extends Component {

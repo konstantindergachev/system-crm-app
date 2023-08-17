@@ -8,6 +8,7 @@ import HistoryContent from '../history/history-content/HistoryContent';
 import OrderCategory from '../order/order-category/OrderCategory';
 import OrderPosition from '../order/order-position/OrderPosition';
 import OverviewContent from '../overview/overview-content/OverviewContent';
+
 import './Content.scss';
 
 const Content = (props) => {
@@ -71,10 +72,7 @@ const Content = (props) => {
     case '/categories':
       return (
         <main className="content">
-          <CategoriesContent
-            isLoading={props.isLoading}
-            categories={props.categories}
-          />
+          <CategoriesContent isLoading={props.isLoading} categories={props.categories} />
         </main>
       );
     case '/categories/category/:id':
@@ -98,10 +96,7 @@ const Content = (props) => {
 Content.propTypes = {
   yesterday: PropTypes.string,
   gain: PropTypes.object,
-  orders: PropTypes.oneOfType([
-    PropTypes.object.isRequired,
-    PropTypes.array.isRequired,
-  ]),
+  orders: PropTypes.oneOfType([PropTypes.object.isRequired, PropTypes.array.isRequired]),
   isTapTarget: PropTypes.bool,
   handleInfo: PropTypes.func,
 
@@ -110,10 +105,7 @@ Content.propTypes = {
   gainConfig: PropTypes.object,
   orderConfig: PropTypes.object,
 
-  noOrders: PropTypes.oneOfType([
-    PropTypes.string.isRequired,
-    PropTypes.bool.isRequired,
-  ]),
+  noOrders: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.bool.isRequired]),
   handleSubmit: PropTypes.func,
   handleHistoryModalOpen: PropTypes.func,
   isFilteredOrders: PropTypes.bool,

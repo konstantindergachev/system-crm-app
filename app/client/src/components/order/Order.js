@@ -5,6 +5,7 @@ import { getAllCategories } from '../../redux/actions/categoryActions';
 import Content from '../content/Content';
 import FloatingButton from '../floating-button/FloatingButton';
 import Sidebar from '../sidebar/Sidebar';
+
 import './Order.scss';
 
 class Order extends Component {

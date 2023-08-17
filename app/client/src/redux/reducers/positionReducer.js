@@ -1,7 +1,6 @@
 import { TYPES } from '../position-types';
 
 const initialState = {
-  // btnOff: true,
   positions: [],
   position: {},
   isLoading: false,
@@ -9,7 +8,7 @@ const initialState = {
   errors: {},
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case TYPES.POSITIONS_LOADING:
       return {
@@ -35,11 +34,8 @@ export default function(state = initialState, action) {
         isLoading: false,
       };
     case TYPES.UPDATE_POSITION:
-      const position = state.positions.map(
-        (position) =>
-          position._id === action.payload.data._id
-            ? action.payload.data
-            : position
+      const position = state.positions.map((position) =>
+        position._id === action.payload.data._id ? action.payload.data : position
       );
       return {
         ...state,

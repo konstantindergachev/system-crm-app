@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
+
 import './Logout.scss';
 
 const Logout = ({ isSidebar, username, logOutClick }) => {

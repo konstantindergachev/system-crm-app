@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Spinner from '../../ui/spinner/Spinner';
+
 import './CategoriesContent.scss';
 
 const CategoriesContent = ({ isLoading, categories }) => {

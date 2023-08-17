@@ -1,4 +1,3 @@
-// import M from 'materialize-css';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -7,6 +6,7 @@ import { loginUser } from '../../../redux/actions/userActions';
 import Navbar from '../../navbar/Navbar';
 import InfoModal from '../../ui/modal/info-modal/InfoModal';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
+
 import './Login.scss';
 
 class Login extends Component {

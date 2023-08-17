@@ -1,5 +1,6 @@
 import React from 'react';
 import image from '../../img/sprite.svg';
+
 import './Footer.scss';
 
 const Footer = () => {

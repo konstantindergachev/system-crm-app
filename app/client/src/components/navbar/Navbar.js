@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logout from '../auth/logout/Logout';
 import Logo from '../logo/Logo';
+
 import './Navbar.scss';
 
 const menu = [

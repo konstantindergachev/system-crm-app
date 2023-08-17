@@ -7,6 +7,7 @@ import { getTotalSum } from '../../../helpers/getTotalSum';
 import Spinner from '../../ui/spinner/Spinner';
 import HistoryFilter from '../history-filter/HistoryFilter';
 import HistoryItem from '../history-item/HistoryItem';
+
 import './HistoryContent.scss';
 
 class HistoryContent extends PureComponent {

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import Content from '../../content/Content';
 import Sidebar from '../../sidebar/Sidebar';
+
 import './CategoryForm.scss';
 
 const CategoryForm = ({ isAuth, username, logOutClick }) => {

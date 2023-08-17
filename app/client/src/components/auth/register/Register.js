@@ -5,7 +5,6 @@ import Footer from '../../../layout/footer/Footer';
 import { registerUser } from '../../../redux/actions/userActions';
 import Navbar from '../../navbar/Navbar';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
-// import './Register.scss';
 
 class Register extends Component {
   constructor(props) {
@@ -18,9 +17,6 @@ class Register extends Component {
     };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
-    // if (Object.keys(nextProps.customerErrors).length > 0) {
-    //   return { errors: nextProps.customerErrors.response.data };
-    // };
     return null;
   }
 
@@ -118,7 +114,6 @@ Register.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  // authAdmin: state.admin.admin,
   errors: state.user.user,
 });
 

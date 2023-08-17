@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './HistoryModalItem.scss';
 
 const HistoryModalItem = ({ name, quantity, cost }) => {

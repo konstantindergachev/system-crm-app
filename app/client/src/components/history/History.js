@@ -8,6 +8,7 @@ import Content from '../content/Content';
 import FloatingButton from '../floating-button/FloatingButton';
 import Sidebar from '../sidebar/Sidebar';
 import HistoryModal from '../ui/modal/history-modal/HistoryModal';
+
 import './History.scss';
 
 class History extends PureComponent {

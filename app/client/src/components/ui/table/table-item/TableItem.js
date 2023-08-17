@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import TextFieldGroup from '../../text-field-group/TextFieldGroup';
+
 import './TableItem.scss';
 
 const TableItem = (props) => {

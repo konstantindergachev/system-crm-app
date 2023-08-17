@@ -1,15 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+
 import './HistoryItem.scss';
 
-const HistoryItem = ({
-  id,
-  orderNumber,
-  date,
-  time,
-  orderTotalSum,
-  handleHistoryModalOpen,
-}) => {
+const HistoryItem = ({ id, orderNumber, date, time, orderTotalSum, handleHistoryModalOpen }) => {
   return (
     <tr>
       <td>{orderNumber}</td>

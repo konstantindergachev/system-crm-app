@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createPosition, updatePosition } from '../../../../redux/actions/positionActions';
 import TextFieldGroup from '../../text-field-group/TextFieldGroup';
+
 import './PositionModal.scss';
 
 const modalStyle = {

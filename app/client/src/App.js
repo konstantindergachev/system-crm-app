@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './App.scss';
 import Analytics from './components/analytics/Analytics';
 import Login from './components/auth/login/Login';
 import Register from './components/auth/register/Register';
@@ -16,6 +15,8 @@ import PageNotFound from './components/page-not-found/PageNotFound';
 import PrivateRoute from './components/privateroute/PrivateRoute';
 import { logoutUser } from './redux/actions/userActions';
 
+import './App.scss';
+
 class App extends React.Component {
   handleLogoutClick = () => {
     const { logoutUser } = this.props;
@@ -29,19 +30,47 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={(props) => <Main {...props} isAuth={isAuth} username={name} logOutClick={this.handleLogoutClick} />}
+            render={(props) => (
+              <Main
+                {...props}
+                isAuth={isAuth}
+                username={name}
+                logOutClick={this.handleLogoutClick}
+              />
+            )}
           />
           <Route
             exact
             path="/login"
-            render={(props) => <Login {...props} isAuth={isAuth} username={name} logOutClick={this.handleLogoutClick} />}
+            render={(props) => (
+              <Login
+                {...props}
+                isAuth={isAuth}
+                username={name}
+                logOutClick={this.handleLogoutClick}
+              />
+            )}
           />
           <Route
             exact
             path="/registration"
-            render={(props) => <Register {...props} isAuth={isAuth} username={name} logOutClick={this.handleLogoutClick} />}
+            render={(props) => (
+              <Register
+                {...props}
+                isAuth={isAuth}
+                username={name}
+                logOutClick={this.handleLogoutClick}
+              />
+            )}
           />
-          <PrivateRoute exact path="/overview" component={Overview} isAuth={isAuth} username={name} logOutClick={this.handleLogoutClick} />
+          <PrivateRoute
+            exact
+            path="/overview"
+            component={Overview}
+            isAuth={isAuth}
+            username={name}
+            logOutClick={this.handleLogoutClick}
+          />
           <PrivateRoute
             exact
             path="/analytics"
@@ -50,8 +79,22 @@ class App extends React.Component {
             username={name}
             logOutClick={this.handleLogoutClick}
           />
-          <PrivateRoute exact path="/history" component={History} isAuth={isAuth} username={name} logOutClick={this.handleLogoutClick} />
-          <PrivateRoute exact path="/order" component={Order} isAuth={isAuth} username={name} logOutClick={this.handleLogoutClick} />
+          <PrivateRoute
+            exact
+            path="/history"
+            component={History}
+            isAuth={isAuth}
+            username={name}
+            logOutClick={this.handleLogoutClick}
+          />
+          <PrivateRoute
+            exact
+            path="/order"
+            component={Order}
+            isAuth={isAuth}
+            username={name}
+            logOutClick={this.handleLogoutClick}
+          />
           <PrivateRoute
             exact
             path="/order/:id"

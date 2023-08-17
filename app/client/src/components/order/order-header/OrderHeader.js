@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+
 import './OrderHeader.scss';
 
 const OrderHeader = ({ location, handleOpenOrderModal, btnOff }) => {

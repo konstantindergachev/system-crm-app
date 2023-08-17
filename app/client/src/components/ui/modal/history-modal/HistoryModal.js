@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { getTotalSum } from '../../../../helpers/getTotalSum';
 import HistoryModalItem from './history-modal-item/HistoryModalItem';
+
 import './HistoryModal.scss';
 
 const modalStyle = {
