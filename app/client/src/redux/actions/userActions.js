@@ -80,4 +80,8 @@ export const logoutUser = () => (dispatch) => {
   setAuthToken(false); //false that hit the else block
   //Set current customer to {} which will set isauthenticated to false
   dispatch(setUser({}));
+  dispatch({
+    type: TYPES.LOGOUT_USER,
+    payload: { info: '' },
+  });
 };

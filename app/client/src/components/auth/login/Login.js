@@ -16,23 +16,25 @@ class Login extends Component {
       email: '',
       password: '',
       isShowed: false,
+      isShowedTimer: 0,
     };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
     return null;
   }
   componentDidMount() {
-    this.isShowedTimer = setTimeout(() => {
-      this.setState((oldState) => ({ isShowed: !oldState.isShowed }));
-      this.isShowedTimer = 0;
-    }, 2500);
+    this.setState(() => {
+      return {
+        isShowedTimer: setTimeout(() => {
+          this.setState(() => ({ isShowed: true }));
+        }, 2500),
+      };
+    });
   }
 
   componentWillUnmount() {
-    if (this.isShowedTimer) {
-      clearTimeout(this.isShowedTimer);
-      this.isShowedTimer = 0;
-    }
+    this.setState(() => ({ isShowedTimer: 0, isShowed: false }));
+    clearTimeout(this.state.isShowedTimer);
   }
 
   handleChange = (ev) => {
@@ -57,8 +59,7 @@ class Login extends Component {
         <Navbar />
         <div className="container">
           <div className="auth-block">
-            {!isShowed && info !== '' && <InfoModal info={info} />}
-            {/* {info !== '' && M.toast({ html: 'I am a toast!' })} */}
+            {!isShowed && info && <InfoModal info={info} />}
             <form className="card" onSubmit={this.handleSubmit}>
               <div className="card-content">
                 <span className="card-title">Увійти до системи</span>

@@ -10,7 +10,7 @@ const initialState = {
   info: '',
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case TYPES.USER_LOADING:
       return {
@@ -18,6 +18,12 @@ export default function(state = initialState, action) {
         isLoading: true,
       };
     case TYPES.REGISTER_USER:
+      return {
+        ...state,
+        info: action.payload.info,
+        isLoading: false,
+      };
+    case TYPES.LOGOUT_USER:
       return {
         ...state,
         info: action.payload.info,
