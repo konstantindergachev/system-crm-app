@@ -7,6 +7,7 @@ import { getTotalSum } from '../../../helpers/getTotalSum';
 import Spinner from '../../ui/spinner/Spinner';
 import HistoryFilter from '../history-filter/HistoryFilter';
 import HistoryItem from '../history-item/HistoryItem';
+import { HISTORY } from '../../../constants';
 
 import './HistoryContent.scss';
 
@@ -53,17 +54,19 @@ class HistoryContent extends PureComponent {
     return (
       <Fragment>
         <div className="page-title">
-          <h4>Історія замовлень</h4>
+          <h4>{HISTORY.TITLE}</h4>
           <button
             ref={this.refTooltip}
             className={`btn btn-small js-filter tooltipped ${
               isFilteredOrders && 'filter__btn-active'
             }`}
-            data-tooltip={`${isFilterOpen ? 'Закрити фільтр' : 'Відкрити фільтр'}`}
+            data-tooltip={`${
+              isFilterOpen ? HISTORY.TOOLTIP_FILTER_CLOSE : HISTORY.TOOLTIP_FILTER_OPEN
+            }`}
             data-position="left"
             onClick={openFilter}
           >
-            <i className="material-icons">filter_list</i>
+            <i className="material-icons">{HISTORY.BTN_FILTER_LIST}</i>
           </button>
         </div>
         {isFilterOpen && <HistoryFilter handleSubmit={handleSubmit} />}
@@ -75,10 +78,10 @@ class HistoryContent extends PureComponent {
           <table className="highlight mb2">
             <thead>
               <tr>
-                <th>№</th>
-                <th>Дата</th>
-                <th>Час</th>
-                <th>Сума</th>
+                <th>{HISTORY.TABLE_NUMBER}</th>
+                <th>{HISTORY.TABLE_DATA}</th>
+                <th>{HISTORY.TABLE_TIME}</th>
+                <th>{HISTORY.TABLE_PRICE}</th>
                 <th />
               </tr>
             </thead>
@@ -103,7 +106,7 @@ class HistoryContent extends PureComponent {
             <Spinner />
           ) : !isComplete && !isFilterOpen ? (
             <button className="btn waves-effect grey darken-1 btn-small" onClick={handleSubmit}>
-              Завантажити ще
+              {HISTORY.BTN_DOWNLOAD}
             </button>
           ) : (
             ''

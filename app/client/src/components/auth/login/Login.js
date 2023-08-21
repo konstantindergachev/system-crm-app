@@ -6,6 +6,7 @@ import { loginUser } from '../../../redux/actions/userActions';
 import Navbar from '../../navbar/Navbar';
 import InfoModal from '../../ui/modal/info-modal/InfoModal';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
+import { LOGIN } from '../../../constants';
 
 import './Login.scss';
 
@@ -62,7 +63,7 @@ class Login extends Component {
             {!isShowed && info && <InfoModal info={info} />}
             <form className="card" onSubmit={this.handleSubmit}>
               <div className="card-content">
-                <span className="card-title">Увійти до системи</span>
+                <span className="card-title">{LOGIN.TITLE}</span>
                 <TextFieldGroup
                   type="email"
                   placeholder="Email:"
@@ -81,7 +82,7 @@ class Login extends Component {
                 />
               </div>
               <div className="card-action">
-                <button className="modal-action btn waves-effect">Увійти</button>
+                <button className="modal-action btn waves-effect">{LOGIN.BTN}</button>
               </div>
             </form>
           </div>

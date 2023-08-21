@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { HISTORY } from '../../../constants';
 
 import './HistoryItem.scss';
 
@@ -16,7 +17,7 @@ const HistoryItem = ({ id, orderNumber, date, time, orderTotalSum, handleHistory
           data-target="order-list"
           onClick={() => handleHistoryModalOpen(id)}
         >
-          <i className="material-icons">open_in_new</i>
+          <i className="material-icons">{HISTORY.BTN_OPEN_IN_NEW}</i>
         </button>
       </td>
     </tr>

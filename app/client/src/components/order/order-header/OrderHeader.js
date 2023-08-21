@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { ORDER } from '../../../constants';
 
 import './OrderHeader.scss';
 
@@ -9,12 +10,12 @@ const OrderHeader = ({ location, handleOpenOrderModal, btnOff }) => {
     <Fragment>
       <span className="page-title__left">
         <Link to="/order">
-          <h4>Замовлення</h4>
+          <h4>{ORDER.TITLE}</h4>
         </Link>
         {location && (
           <Fragment>
-            <i className="material-icons">keyboard_arrow_right</i>
-            <h4>Додати продукцію</h4>
+            <i className="material-icons">{ORDER.BTN_KEYBOARD_ARROW_RIGHT}</i>
+            <h4>{ORDER.SUB_TITLE}</h4>
           </Fragment>
         )}
       </span>
@@ -25,7 +26,7 @@ const OrderHeader = ({ location, handleOpenOrderModal, btnOff }) => {
         onClick={handleOpenOrderModal}
         disabled={!btnOff}
       >
-        Закінчити
+        {ORDER.BTN}
       </button>
     </Fragment>
   );

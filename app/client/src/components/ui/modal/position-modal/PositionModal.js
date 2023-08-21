@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createPosition, updatePosition } from '../../../../redux/actions/positionActions';
 import TextFieldGroup from '../../text-field-group/TextFieldGroup';
+import { MODAL } from '../../../../constants';
 
 import './PositionModal.scss';
 
@@ -70,7 +71,9 @@ class PositionModal extends Component {
       <div className={`modal__overlay ${isModal && 'modal__overlay-open'}`}>
         <form className="modal" style={isModal ? modalStyle : null} onSubmit={this.handleSubmit}>
           <div className="modal-content">
-            <h4 className="mb1">{posId ? 'Змінити позицію' : 'Додати позицію'}</h4>
+            <h4 className="mb1">
+              {posId ? MODAL.POSITION.TITLE_CHANGE : MODAL.POSITION.TITLE_ADD}
+            </h4>
             <div className="input-field">
               <TextFieldGroup
                 placeholder="Назва"
@@ -96,10 +99,10 @@ class PositionModal extends Component {
               className="modal-action waves-effect waves-black btn-flat"
               onClick={handleClosePositionModal}
             >
-              Відміна
+              {MODAL.POSITION.BTN_CANCEL}
             </button>
             <button className="modal-action btn waves-effect" onClick={handleClosePositionModal}>
-              Зберегти
+              {MODAL.POSITION.BTN_OK}
             </button>
           </div>
         </form>

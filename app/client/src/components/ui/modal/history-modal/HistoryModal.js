@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { getTotalSum } from '../../../../helpers/getTotalSum';
 import HistoryModalItem from './history-modal-item/HistoryModalItem';
+import { MODAL } from '../../../../constants';
 
 import './HistoryModal.scss';
 
@@ -18,13 +19,16 @@ const HistoryModal = ({ isHistoryModalOpen, selectedOrderList, handleCloseHistor
     <div className={`modal__overlay ${isHistoryModalOpen && 'modal__overlay-open'}`}>
       <div className="modal modal-fixed-footer" style={isHistoryModalOpen ? modalStyle : null}>
         <div className="modal-content">
-          <h4 className="mb1">Замовлення №{selectedOrderList.order}</h4>
+          <h4 className="mb1">
+            {MODAL.HISTORY.TITLE}
+            {selectedOrderList.order}
+          </h4>
           <table className="highlight">
             <thead>
               <tr>
-                <th>Назва</th>
-                <th>Кількість</th>
-                <th>Ціна</th>
+                <th>{MODAL.HISTORY.TABLE_TITLE}</th>
+                <th>{MODAL.HISTORY.TABLE_COUNT}</th>
+                <th>{MODAL.HISTORY.TABLE_PRICE}</th>
               </tr>
             </thead>
             {selectedOrderList.list.map((list) => (
@@ -38,7 +42,7 @@ const HistoryModal = ({ isHistoryModalOpen, selectedOrderList, handleCloseHistor
           </table>
           <div className="order-summary order-summary__total-cost">
             <p>
-              Загальна вартість: <strong>{getTotalSum(selectedOrderList.list)}грн.</strong>
+              {MODAL.HISTORY.SUMMARY}: <strong>{getTotalSum(selectedOrderList.list)}грн.</strong>
             </p>
           </div>
         </div>
@@ -47,7 +51,7 @@ const HistoryModal = ({ isHistoryModalOpen, selectedOrderList, handleCloseHistor
             className="modal-action waves-effect waves-black btn-flat"
             onClick={handleCloseHistoryModal}
           >
-            Закрити
+            {MODAL.HISTORY.BTN_CLOSE}
           </button>
         </div>
       </div>

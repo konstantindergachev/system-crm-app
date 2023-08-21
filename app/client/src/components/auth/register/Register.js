@@ -5,6 +5,7 @@ import Footer from '../../../layout/footer/Footer';
 import { registerUser } from '../../../redux/actions/userActions';
 import Navbar from '../../navbar/Navbar';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
+import { REGISTER } from '../../../constants';
 
 class Register extends Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class Register extends Component {
           <div className="auth-block">
             <form className="card" onSubmit={this.handleSubmit}>
               <div className="card-content">
-                <span className="card-title">Створити акаунт</span>
+                <span className="card-title">{REGISTER.TITLE}</span>
                 <TextFieldGroup
                   placeholder="Ім'я:"
                   name="username"
@@ -96,7 +97,7 @@ class Register extends Component {
                 />
               </div>
               <div className="card-action">
-                <button className="modal-action btn waves-effect">Створити</button>
+                <button className="modal-action btn waves-effect">{REGISTER.BTN}</button>
               </div>
             </form>
           </div>

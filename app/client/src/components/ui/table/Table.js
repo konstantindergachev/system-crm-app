@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import TableItem from './table-item/TableItem';
+import { TABLE } from '../../../constants';
 
 const Table = (props) => {
   const {
@@ -18,15 +19,15 @@ const Table = (props) => {
       <thead>
         {isModal ? (
           <tr>
-            <th>Назва</th>
-            <th>Кількість</th>
-            <th>Ціна</th>
+            <th>{TABLE.MODAL.NAME}</th>
+            <th>{TABLE.MODAL.COUNT}</th>
+            <th>{TABLE.MODAL.PRICE}</th>
           </tr>
         ) : (
           <tr>
-            <th>Назва</th>
-            <th>Вартість</th>
-            <th>Кількість</th>
+            <th>{TABLE.NAME}</th>
+            <th>{TABLE.COST}</th>
+            <th>{TABLE.COUNT}</th>
           </tr>
         )}
       </thead>

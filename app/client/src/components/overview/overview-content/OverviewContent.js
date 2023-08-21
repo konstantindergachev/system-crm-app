@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import Spinner from '../../ui/spinner/Spinner';
+import { OVERVIEW } from '../../../constants';
 
 import './OverviewContent.scss';
 
@@ -9,9 +10,9 @@ const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) =
     <Fragment>
       <div className="page-title">
         <h4>
-          Огляд за вчора ({yesterday}){' '}
+          {OVERVIEW.TITLE} ({yesterday}){' '}
           <i className="material-icons black-text pointer" onClick={handleInfo}>
-            info_outline
+            {OVERVIEW.BTN_INFO}
           </i>
         </h4>
       </div>
@@ -20,7 +21,7 @@ const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) =
           <div className="col s12 l6">
             <div className="card light-blue lighten-2 white-text">
               <div className="card-content">
-                <span className="card-title">Виторг:</span>
+                <span className="card-title">{OVERVIEW.REVENUE}:</span>
                 <h3>{gain.yesterday} грн.</h3>
                 <h3 className={`${gain.isHigher ? 'green-text text-darken-2' : 'red-text'} m0 mb1`}>
                   <i className="material-icons">
@@ -39,7 +40,7 @@ const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) =
           <div className="col s12 l6">
             <div className="card orange lighten-2 white-text">
               <div className="card-content">
-                <span className="card-title">Замовлення:</span>
+                <span className="card-title">{OVERVIEW.ORDER}:</span>
                 <h3>{orders.yesterday} зам.</h3>
                 <h3
                   className={`${orders.isHigher ? 'green-text text-darken-2' : 'red-text'} m0 mb1`}
@@ -63,11 +64,8 @@ const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) =
 
       {isTapTarget && (
         <div className="overview__content-wrap">
-          <h5 className="overview__content-title">Навіщо потрібна ця сторінка?</h5>
-          <p className="overview__content-text">
-            Сторінка "Огляд" покаже динаміку продажів за попередній день. Порівняння із середніми
-            значеннями допоможе вам зрозуміти, як йдуть справи у Вашого бізнесу.
-          </p>
+          <h5 className="overview__content-title">{OVERVIEW.TARGET.TITLE}</h5>
+          <p className="overview__content-text">{OVERVIEW.TARGET.TEXT}</p>
         </div>
       )}
     </Fragment>

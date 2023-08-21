@@ -8,6 +8,7 @@ import Content from '../content/Content';
 import FloatingButton from '../floating-button/FloatingButton';
 import Sidebar from '../sidebar/Sidebar';
 import HistoryModal from '../ui/modal/history-modal/HistoryModal';
+import { HISTORY } from '../../constants';
 
 import './History.scss';
 
@@ -143,7 +144,7 @@ class History extends PureComponent {
           isFilteredOrders={isFilteredOrders}
           isFilterOpen={isFilterOpen}
           openFilter={this.openFilter}
-          noOrders={orders.length === 0 && 'Замовлень поки немає'}
+          noOrders={orders.length === 0 && HISTORY.ORDER_MSG}
         />
 
         {isHistoryModalOpen && (

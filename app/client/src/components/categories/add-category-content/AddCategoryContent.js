@@ -14,6 +14,7 @@ import {
 } from '../../../redux/actions/uploadImageActions';
 import Positions from '../../positions/Positions';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
+import { CATEGORIES } from '../../../constants';
 
 import './AddCategoryContent.scss';
 
@@ -151,7 +152,7 @@ class AddCategoryContent extends Component {
                 className="btn-floating btn-floating__delete red"
                 onClick={this.handleRemoveCategoryImage}
               >
-                <i className="material-icons">delete</i>
+                <i className="material-icons">{CATEGORIES.BTN_DELETE}</i>
               </button>
               <img className="responsive-img category__img" src={imgPreviewUrl} alt={name} />
             </Fragment>
@@ -183,18 +184,19 @@ class AddCategoryContent extends Component {
       <Fragment>
         <div className="page-title">
           <h4>
-            <Link to="/categories">Категорії</Link>
-            <i className="material-icons">keyboard_arrow_right</i>
-            {typeof path === 'string' ? 'Додати категорію' : 'Змінити категорію'}
+            <Link to="/categories">{CATEGORIES.TITLE}</Link>
+            <i className="material-icons">{CATEGORIES.BTN_KEYBOARD_ARROW_RIGHT}</i>
+            {typeof path === 'string'
+              ? CATEGORIES.SUB_TITLE_ADD_CATEGORY
+              : CATEGORIES.SUB_TITLE_CHANGE_CATEGORY}
           </h4>
           {typeof path !== 'string' && (
             <span>
               <button
                 className="btn btn-small red"
                 onClick={() => this.handleDeleteCategory(state.category._id)}
-                // onClick={() => this.handleDeleteCategory(categoryId)}
               >
-                <i className="material-icons">delete</i>
+                <i className="material-icons">{CATEGORIES.BTN_DELETE}</i>
               </button>
             </span>
           )}
@@ -225,11 +227,11 @@ class AddCategoryContent extends Component {
               onClick={this.handleUpload}
               disabled={selectedFile ? false : true}
             >
-              <i className="material-icons left">backup</i>
-              Зберегти
+              <i className="material-icons left">{CATEGORIES.BTN_BACKUP}</i>
+              {CATEGORIES.BTN_SAVE}
             </button>
             <button type="submit" className="waves-effect waves-light btn" disabled={!isSended}>
-              Зберегти зміни
+              {CATEGORIES.BTN_SAVE_CHANGES}
             </button>
           </div>
           <div className="col s12 l4 center">

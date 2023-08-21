@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logout from '../auth/logout/Logout';
 import Logo from '../logo/Logo';
+import { NAVBAR } from '../../constants';
 
 import './Navbar.scss';
 
@@ -23,7 +24,9 @@ const Navbar = ({ isAuth, username, logOutClick }) => {
             menu.map((item) => (
               <li key={item.id} className="menu__item">
                 <NavLink to={`/${item.name}`} exact activeClassName="current">
-                  {item.name === 'login' ? 'вхід' : item.name === 'registration' && 'реєстрація'}
+                  {item.name === 'login'
+                    ? NAVBAR.LOGIN
+                    : item.name === 'registration' && NAVBAR.REGISTRATION}
                 </NavLink>
               </li>
             ))

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { validate } from '../../../helpers/dateFilter';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
+import { HISTORY } from '../../../constants';
 
 import './HistoryFilter.scss';
 
@@ -95,7 +96,7 @@ class HistoryFilter extends React.Component {
             className="btn waves-effect wavers-light btn-small"
             disabled={isValid}
           >
-            Застосувати фільтр
+            {HISTORY.BTN_FILTER}
           </button>
         </form>
       </div>

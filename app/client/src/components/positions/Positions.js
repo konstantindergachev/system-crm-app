@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
 import PositionModal from '../ui/modal/position-modal/PositionModal';
 import Spinner from '../ui/spinner/Spinner';
+import { POSITIONS } from '../../constants';
 
 import './Positions.scss';
 
@@ -49,14 +50,14 @@ class Positions extends Component {
       <Fragment>
         <div className="col s12">
           <div className="page-subtitle">
-            <h4>Позиції:</h4>
+            <h4>{POSITIONS.TITLE}:</h4>
             <button
               type="button"
               className="waves-effect waves-light btn grey darken-1 btn-small modal-trigger"
               data-target="create-modal"
               onClick={this.handleAddPositionModal}
             >
-              Додати позицію
+              {POSITIONS.BTN_ADD}
             </button>
           </div>
           {isLoading ? (
@@ -81,13 +82,13 @@ class Positions extends Component {
                       onClick={() => this.handleDeletePosition(position._id)}
                       className="collection-item collection-item-icon"
                     >
-                      <i className="material-icons">delete</i>
+                      <i className="material-icons">{POSITIONS.BTN_DELETE}</i>
                     </span>
                   </div>
                 )
             )
           ) : (
-            <span className="collection__none">В категорії немає позицій</span>
+            <span className="collection__none">{POSITIONS.MSG}</span>
           )}
         </div>
         <PositionModal

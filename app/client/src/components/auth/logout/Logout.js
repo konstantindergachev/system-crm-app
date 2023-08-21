@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
+import { LOGOUT } from '../../../constants';
 
 import './Logout.scss';
 
@@ -10,7 +11,7 @@ const Logout = ({ isSidebar, username, logOutClick }) => {
       <Fragment>
         <span className="logout__username-sidebar">{username}</span>
         <span className="logout__exit logout__exit-sidebar" onClick={logOutClick}>
-          Вийти
+          {LOGOUT.BTN}
         </span>
       </Fragment>
     );
@@ -19,7 +20,7 @@ const Logout = ({ isSidebar, username, logOutClick }) => {
     <div className="logout">
       <span className="logout__username">{username}</span>
       <span className="logout__exit" onClick={logOutClick}>
-        Вийти
+        {LOGOUT.BTN}
       </span>
     </div>
   );

@@ -2,7 +2,10 @@ import Chart from 'chart.js';
 import PropTypes from 'prop-types';
 import React, { Fragment, PureComponent } from 'react';
 import { createChartConfig } from '../../../helpers/createChartConfig';
+import { ANALYTICS } from '../../../constants';
+
 import './AnalyticsContent.scss';
+
 let lineGainChart;
 let lineOrderChart;
 
@@ -53,23 +56,23 @@ class AnalyticsContent extends PureComponent {
     return (
       <Fragment>
         <div className="page-title">
-          <h4>Аналітика</h4>
+          <h4>{ANALYTICS.TITLE}</h4>
         </div>
 
         <div className="average-price">
           <p>
-            Середній чек: <strong>{average} грн.</strong>
+            {ANALYTICS.AVG_PRICE}: <strong>{average} грн.</strong>
           </p>
         </div>
 
         <div className="analytics-block pb3">
-          <h5>Виторг:</h5>
+          <h5>{ANALYTICS.REVENUE}:</h5>
           <div className="linechart__container">
             <canvas ref={this.refGainChart} />
           </div>
         </div>
         <div className="analytics-block pb3">
-          <h5>Замовлення:</h5>
+          <h5>{ANALYTICS.ORDER}:</h5>
           <div className="linechart__container">
             <canvas ref={this.refOrderChart} />
           </div>

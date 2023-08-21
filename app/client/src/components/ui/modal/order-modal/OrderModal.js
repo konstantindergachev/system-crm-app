@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createOrder, updateOrder } from '../../../../redux/actions/orderActions';
 import Table from '../../table/Table';
+import { MODAL } from '../../../../constants';
 
 import './OrderModal.scss';
 
@@ -48,7 +49,7 @@ class OrderModal extends Component {
       <div className={`modal__overlay ${isModal && 'modal__overlay-open'}`}>
         <form className="modal" style={isModal ? modalStyle : null} onSubmit={this.handleSubmit}>
           <div className="modal-content">
-            <h4 className="mb1">Ваше замовлення</h4>
+            <h4 className="mb1">{MODAL.ORDER.TITLE}</h4>
             <Table
               positions={list}
               orderQuantity={orderQuantity}
@@ -57,7 +58,7 @@ class OrderModal extends Component {
             />
             <div className="order-summary">
               <p>
-                Загальна вартість: <strong>{totalSum} грн.</strong>
+                {MODAL.ORDER.SUMMARY}: <strong>{totalSum} грн.</strong>
               </p>
             </div>
           </div>
@@ -67,14 +68,14 @@ class OrderModal extends Component {
               className="modal-action waves-effect waves-black btn-flat"
               onClick={handleCloseOrderModal}
             >
-              Відміна
+              {MODAL.ORDER.BTN_CANCEL}
             </button>
             <button
               type="submit"
               className="modal-action btn waves-effect"
               disabled={totalSum === 0}
             >
-              Підтвердити
+              {MODAL.ORDER.BTN_OK}
             </button>
           </div>
         </form>

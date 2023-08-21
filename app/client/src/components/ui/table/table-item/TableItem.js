@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import TextFieldGroup from '../../text-field-group/TextFieldGroup';
+import { TABLE } from '../../../../constants';
 
 import './TableItem.scss';
 
@@ -23,7 +24,7 @@ const TableItem = (props) => {
           <td>{quantity}</td>
           <td>{cost} грн.</td>
           <td onClick={() => handleRemovePositionFromOrder(id)}>
-            <i className="material-icons pointer">delete</i>
+            <i className="material-icons pointer">{TABLE.BTN_DELETE}</i>
           </td>
         </Fragment>
       ) : (
@@ -48,7 +49,7 @@ const TableItem = (props) => {
               disabled={quantity < 1 && true}
               onClick={() => handleAddPositionToOrder(id, name, cost, quantity)}
             >
-              Додати
+              {TABLE.BTN_ADD}
             </button>
           </td>
         </Fragment>
