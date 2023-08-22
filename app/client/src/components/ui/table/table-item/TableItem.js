@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import TextFieldGroup from '../../text-field-group/TextFieldGroup';
-import { TABLE } from '../../../../constants';
+import { TABLE, MONEY } from '../../../../constants';
+import { moneyFormat } from '../../../../helpers/moneyFormat';
 
 import './TableItem.scss';
 
@@ -22,7 +23,7 @@ const TableItem = (props) => {
         <Fragment>
           <td>{name}</td>
           <td>{quantity}</td>
-          <td>{cost} грн.</td>
+          <td>{moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, cost)}</td>
           <td onClick={() => handleRemovePositionFromOrder(id)}>
             <i className="material-icons pointer">{TABLE.BTN_DELETE}</i>
           </td>
@@ -30,7 +31,7 @@ const TableItem = (props) => {
       ) : (
         <Fragment>
           <td>{name}</td>
-          <td>{cost} грн.</td>
+          <td>{moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, cost)}</td>
           <td>
             <div className="input-field inline order-position-input">
               <TextFieldGroup

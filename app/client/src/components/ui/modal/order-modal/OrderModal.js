@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createOrder, updateOrder } from '../../../../redux/actions/orderActions';
 import Table from '../../table/Table';
-import { MODAL } from '../../../../constants';
+import { MODAL, MONEY } from '../../../../constants';
+import { moneyFormat } from '../../../../helpers/moneyFormat';
 
 import './OrderModal.scss';
 
@@ -58,7 +59,8 @@ class OrderModal extends Component {
             />
             <div className="order-summary">
               <p>
-                {MODAL.ORDER.SUMMARY}: <strong>{totalSum} грн.</strong>
+                {MODAL.ORDER.SUMMARY}:{' '}
+                <strong>{moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, totalSum)}</strong>
               </p>
             </div>
           </div>

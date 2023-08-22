@@ -1,4 +1,6 @@
 import React from 'react';
+import { MONEY } from '../../../../../constants';
+import { moneyFormat } from '../../../../../helpers/moneyFormat';
 
 import './HistoryModalItem.scss';
 
@@ -8,7 +10,7 @@ const HistoryModalItem = ({ name, quantity, cost }) => {
       <tr>
         <td>{name}</td>
         <td>{quantity}</td>
-        <td>{cost} грн.</td>
+        <td>{moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, cost)}</td>
       </tr>
     </tbody>
   );

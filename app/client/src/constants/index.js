@@ -1,6 +1,11 @@
 export const OFFSET = 2;
 export const STEP = 2;
 
+export const MONEY = {
+  LOCALE: 'ua-UA',
+  CURRENCY: 'UAH',
+};
+
 export const HOME = {
   BRAND: 'УВзК',
   BRAND_DESCRIPTION: '(управління відносинами з клієнтом)',

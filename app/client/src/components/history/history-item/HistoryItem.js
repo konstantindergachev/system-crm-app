@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { HISTORY } from '../../../constants';
+import { HISTORY, MONEY } from '../../../constants';
+import { moneyFormat } from '../../../helpers/moneyFormat';
 
 import './HistoryItem.scss';
 
@@ -10,7 +11,7 @@ const HistoryItem = ({ id, orderNumber, date, time, orderTotalSum, handleHistory
       <td>{orderNumber}</td>
       <td>{date}</td>
       <td>{time}</td>
-      <td>{orderTotalSum} грн.</td>
+      <td>{moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, orderTotalSum)}</td>
       <td>
         <button
           className="btn btn-small modal-trigger grey darken-1"

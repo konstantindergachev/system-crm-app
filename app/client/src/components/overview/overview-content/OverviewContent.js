@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import Spinner from '../../ui/spinner/Spinner';
-import { OVERVIEW } from '../../../constants';
+import { OVERVIEW, MONEY } from '../../../constants';
+import { moneyFormat } from '../../../helpers/moneyFormat';
 
 import './OverviewContent.scss';
 
@@ -22,7 +23,7 @@ const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) =
             <div className="card light-blue lighten-2 white-text">
               <div className="card-content">
                 <span className="card-title">{OVERVIEW.REVENUE}:</span>
-                <h3>{gain.yesterday} грн.</h3>
+                <h3>{moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, gain.yesterday)}</h3>
                 <h3 className={`${gain.isHigher ? 'green-text text-darken-2' : 'red-text'} m0 mb1`}>
                   <i className="material-icons">
                     {gain.isHigher ? 'arrow_upward' : 'arrow_downward'}
@@ -31,7 +32,7 @@ const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) =
                 </h3>
                 <p>
                   Виторг вашого бізнесу вчора на {gain.percent}% {gain.isHigher ? 'вище' : 'нижче'}{' '}
-                  середнього: {gain.compare} грн. в день
+                  середнього: {moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, gain.compare)} в день
                 </p>
               </div>
             </div>

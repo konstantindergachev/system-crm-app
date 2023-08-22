@@ -2,7 +2,8 @@ import Chart from 'chart.js';
 import PropTypes from 'prop-types';
 import React, { Fragment, PureComponent } from 'react';
 import { createChartConfig } from '../../../helpers/createChartConfig';
-import { ANALYTICS } from '../../../constants';
+import { ANALYTICS, MONEY } from '../../../constants';
+import { moneyFormat } from '../../../helpers/moneyFormat';
 
 import './AnalyticsContent.scss';
 
@@ -61,7 +62,8 @@ class AnalyticsContent extends PureComponent {
 
         <div className="average-price">
           <p>
-            {ANALYTICS.AVG_PRICE}: <strong>{average} грн.</strong>
+            {ANALYTICS.AVG_PRICE}:{' '}
+            <strong>{moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, average)}</strong>
           </p>
         </div>
 

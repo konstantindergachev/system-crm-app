@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component, Fragment } from 'react';
 import PositionModal from '../ui/modal/position-modal/PositionModal';
 import Spinner from '../ui/spinner/Spinner';
-import { POSITIONS } from '../../constants';
+import { POSITIONS, MONEY } from '../../constants';
+import { moneyFormat } from '../../helpers/moneyFormat';
 
 import './Positions.scss';
 
@@ -74,7 +75,10 @@ class Positions extends Component {
                     >
                       <div className="collection-item">
                         <span>
-                          {position.name} <strong>{position.cost} грн.</strong>
+                          {position.name}{' '}
+                          <strong>
+                            {moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, position.cost)}
+                          </strong>
                         </span>
                       </div>
                     </div>

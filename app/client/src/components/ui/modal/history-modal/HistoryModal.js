@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { getTotalSum } from '../../../../helpers/getTotalSum';
 import HistoryModalItem from './history-modal-item/HistoryModalItem';
-import { MODAL } from '../../../../constants';
+import { MODAL, MONEY } from '../../../../constants';
+import { moneyFormat } from '../../../../helpers/moneyFormat';
 
 import './HistoryModal.scss';
 
@@ -42,7 +43,10 @@ const HistoryModal = ({ isHistoryModalOpen, selectedOrderList, handleCloseHistor
           </table>
           <div className="order-summary order-summary__total-cost">
             <p>
-              {MODAL.HISTORY.SUMMARY}: <strong>{getTotalSum(selectedOrderList.list)}грн.</strong>
+              {MODAL.HISTORY.SUMMARY}:{' '}
+              <strong>
+                {moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, getTotalSum(selectedOrderList.list))}
+              </strong>
             </p>
           </div>
         </div>
