@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 import Spinner from '../../ui/spinner/Spinner';
-import { OVERVIEW, MONEY } from '../../../constants';
+import { OVERVIEW, MONEY, ARROW, ORDER_CONDITION } from '../../../constants';
 import { moneyFormat } from '../../../helpers/moneyFormat';
 
 import './OverviewContent.scss';
@@ -25,14 +25,13 @@ const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) =
                 <span className="card-title">{OVERVIEW.REVENUE}:</span>
                 <h3>{moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, gain.yesterday)}</h3>
                 <h3 className={`${gain.isHigher ? 'green-text text-darken-2' : 'red-text'} m0 mb1`}>
-                  <i className="material-icons">
-                    {gain.isHigher ? 'arrow_upward' : 'arrow_downward'}
-                  </i>
+                  <i className="material-icons">{gain.isHigher ? ARROW.UPWARD : ARROW.DOWNWARD}</i>
                   {gain.percent}%
                 </h3>
                 <p>
-                  Виторг вашого бізнесу вчора на {gain.percent}% {gain.isHigher ? 'вище' : 'нижче'}{' '}
-                  середнього: {moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, gain.compare)} в день
+                  Виторг вашого бізнесу вчора на {gain.percent}%{' '}
+                  {gain.isHigher ? ORDER_CONDITION.IS_HIGHER : ORDER_CONDITION.IS_LOWER} середнього:{' '}
+                  {moneyFormat(MONEY.LOCALE, MONEY.CURRENCY, gain.compare)} в день
                 </p>
               </div>
             </div>
@@ -47,12 +46,13 @@ const OverviewContent = ({ yesterday, gain, orders, isTapTarget, handleInfo }) =
                   className={`${orders.isHigher ? 'green-text text-darken-2' : 'red-text'} m0 mb1`}
                 >
                   <i className="material-icons">
-                    {orders.isHigher ? 'arrow_upward' : 'arrow_downward'}
+                    {orders.isHigher ? ARROW.UPWARD : ARROW.DOWNWARD}
                   </i>
                   {orders.percent}%
                 </h3>
                 <p>
-                  Число замовлень вчора на {orders.percent}% {orders.isHigher ? 'вище' : 'нижче'}{' '}
+                  Число замовлень вчора на {orders.percent}%{' '}
+                  {orders.isHigher ? ORDER_CONDITION.IS_HIGHER : ORDER_CONDITION.IS_LOWER}{' '}
                   середнього значення: {orders.compare} зам. в день
                 </p>
               </div>

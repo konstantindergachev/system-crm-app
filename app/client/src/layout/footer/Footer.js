@@ -1,5 +1,6 @@
 import React from 'react';
 import image from '../../img/sprite.svg';
+import { CONTACTS } from '../../constants';
 
 import './Footer.scss';
 
@@ -8,18 +9,13 @@ const Footer = () => {
     <footer className="footer grey darken-1 white-text">
       <span className="copyright">&copy; {new Date().toISOString().split('-')[0]}</span>
       <div className="footer__right">
-        <a
-          href="http://kostyantyn.dergachov.surge.sh/"
-          target="_blank"
-          className="social right"
-          rel="noopener noreferrer"
-        >
+        <a href={CONTACTS.SURGE} target="_blank" className="social right" rel="noopener noreferrer">
           <svg>
             <use xlinkHref={`${image}#surge`} />
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/in/kostyadergachev"
+          href={CONTACTS.LINKEDIN}
           target="_blank"
           className="social right"
           rel="noopener noreferrer"

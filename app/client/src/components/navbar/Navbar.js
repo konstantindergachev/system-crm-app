@@ -4,13 +4,9 @@ import { NavLink } from 'react-router-dom';
 import Logout from '../auth/logout/Logout';
 import Logo from '../logo/Logo';
 import { NAVBAR } from '../../constants';
+import { menu } from './settings';
 
 import './Navbar.scss';
-
-const menu = [
-  { id: 1, name: 'login' },
-  { id: '2', name: 'registration' },
-];
 
 const Navbar = ({ isAuth, username, logOutClick }) => {
   return (

@@ -164,3 +164,21 @@ export const TABLE = {
   BTN_DELETE: 'delete',
   BTN_ADD: 'Додати',
 };
+
+export const IMAGE_FORMAT_ERROR = 'Формат картинки недоступний! Виберіть інший формат.';
+export const DATE_PICKER_FORMAT = 'dd.mm.yyyy';
+
+export const ARROW = {
+  UPWARD: 'arrow_upward',
+  DOWNWARD: 'arrow_downward',
+};
+
+export const ORDER_CONDITION = {
+  IS_HIGHER: 'вище',
+  IS_LOWER: 'нижче',
+};
+
+export const CONTACTS = {
+  SURGE: 'http://kostyantyn.dergachov.surge.sh/',
+  LINKEDIN: 'https://www.linkedin.com/in/kostyadergachev',
+};

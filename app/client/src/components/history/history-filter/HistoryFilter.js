@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { validate } from '../../../helpers/dateFilter';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
-import { HISTORY } from '../../../constants';
+import { HISTORY, DATE_PICKER_FORMAT } from '../../../constants';
 
 import './HistoryFilter.scss';
 
@@ -23,7 +23,7 @@ class HistoryFilter extends React.Component {
     if (this.refDatePickerStart.current && this.refDatePickerEnd.current) {
       this.setState({
         datePickerStart: M.Datepicker.init(this.refDatePickerStart.current.firstElementChild, {
-          format: 'dd.mm.yyyy',
+          format: DATE_PICKER_FORMAT,
           showClearBtn: true,
           onClose: () => {
             const { datePickerStart, datePickerEnd } = this.state;
@@ -34,7 +34,7 @@ class HistoryFilter extends React.Component {
           },
         }),
         datePickerEnd: M.Datepicker.init(this.refDatePickerEnd.current.firstElementChild, {
-          format: 'dd.mm.yyyy',
+          format: DATE_PICKER_FORMAT,
           showClearBtn: true,
           onClose: () => {
             const { datePickerStart, datePickerEnd } = this.state;

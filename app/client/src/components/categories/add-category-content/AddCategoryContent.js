@@ -14,7 +14,7 @@ import {
 } from '../../../redux/actions/uploadImageActions';
 import Positions from '../../positions/Positions';
 import TextFieldGroup from '../../ui/text-field-group/TextFieldGroup';
-import { CATEGORIES } from '../../../constants';
+import { CATEGORIES, IMAGE_FORMAT_ERROR } from '../../../constants';
 
 import './AddCategoryContent.scss';
 
@@ -75,7 +75,7 @@ class AddCategoryContent extends Component {
     const file = ev.target.files[0];
     const pattern = /image-*/;
     if (!file.type.match(pattern)) {
-      alert('Формат картинки недоступний! Виберіть інший формат.');
+      alert(IMAGE_FORMAT_ERROR);
     }
     reader.onloadend = () => {
       this.setState({
