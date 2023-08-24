@@ -1,3 +1,5 @@
+@import '../../../scss/variables.scss';
+
 input[type='file'] {
   position: relative;
   &::-webkit-file-upload-button {
@@ -11,5 +13,5 @@ input[type='file'] {
 }
 
 .invalid__feedback {
-  color: #ff0000;
+  color: $thirdColor;
 }

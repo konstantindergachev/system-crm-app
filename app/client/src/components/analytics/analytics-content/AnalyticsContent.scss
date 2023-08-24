@@ -1,8 +1,9 @@
 @import '../../../scss/mixins.scss';
+@import '../../../scss/variables.scss';
 
 .linechart__container {
   width: 50vw;
-  background: white;
+  background: $mainColor;
   padding: 0px 20px;
   border-radius: 10px;
   @include deskfirst(600) {

@@ -1,4 +1,5 @@
 @import '../../../scss/mixins.scss';
+@import '../../../scss/variables.scss';
 
 .col.s12.l6 {
   margin-bottom: inherit;
@@ -23,6 +24,6 @@
   &-empty {
     max-width: 200px;
     height: 200px;
-    background-color: #d3d3d3;
+    background-color: $fourthColor;
   }
 }

@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .collection {
   &__none {
     display: block;
@@ -16,9 +18,9 @@
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   cursor: pointer;
-  transition: background-color .25s;
-  color: #26a69a;
+  transition: background-color 0.25s;
+  color: $fifthColor;
   &:hover {
-    background-color: #ddd !important;
+    background-color: $mainColorHvr !important;
   }
 }

@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .page__not-found {
   text-align: center;
   display: flex;
@@ -7,5 +9,5 @@
 }
 .error__text {
   text-indent: 15px;
-  color: #ff0000;
+  color: $thirdColor;
 }

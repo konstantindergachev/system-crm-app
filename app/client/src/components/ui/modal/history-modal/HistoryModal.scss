@@ -1,3 +1,5 @@
+@import '../../../../scss/variables.scss';
+
 .modal {
   &__overlay {
     position: fixed;
@@ -7,13 +9,13 @@
     right: 0;
     height: 125%;
     width: 100%;
-    background: #000;
+    background: $secondColor;
     display: none;
     will-change: opacity;
     z-index: 999;
     &-open {
       display: block;
-      background: rgba(#000, 0.5);
+      background: rgba($secondColor, 0.5);
       z-index: 1002;
     }
   }

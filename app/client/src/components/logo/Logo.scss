@@ -1,12 +1,16 @@
+@import '../../scss/variables.scss';
+
 .logo {
   &__sidebar {
     height: 64px !important;
-    span {
-      font-size: 2.1rem;
-      line-height: 64px;
+    position: relative;
+    svg {
+      fill: $secondColor !important;
     }
   }
-  span {
-    font-size: 2.1rem;
+  svg {
+    position: absolute;
+    top: 10%;
+    fill: $mainColor;
   }
 }
