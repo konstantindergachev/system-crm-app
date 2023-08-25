@@ -1,4 +1,5 @@
 @import '../scss/mixins.scss';
+@import '../scss/variables.scss';
 
 .a-sidenav {
   transform: translateX(0) !important;
@@ -16,7 +17,7 @@
 }
 .a-sidenav h4 {
   padding: 0 30px;
-  opacity: .8;
+  opacity: 0.8;
   font-size: 2rem;
 }
 .a-sidenav .bold.last {
@@ -38,6 +39,7 @@ main {
   padding: 0 30px;
   position: relative;
 }
+
 .m0 {
   margin: 0;
 }
@@ -87,8 +89,8 @@ main {
   }
 }
 .page-title a {
-  color: black;
-  opacity: .8;
+  color: $secondColor;
+  opacity: 0.8;
   position: relative;
 
   @include deskfirst(540) {
@@ -172,7 +174,7 @@ main {
 }
 
 .btn-floating.tap-target-origin {
-  background-color: #bdbdbd !important;
+  background-color: $mainColorHvr !important;
 }
 .btn-floating.btn-floating__delete {
   position: absolute;
@@ -200,8 +202,8 @@ main {
   z-index: 10;
 }
 .collection-item-icon i.material-icons:hover {
-  color: #f44336 !important;
-  transition: .3s color;
+  color: $sixthColor !important;
+  transition: 0.3s color;
 }
 .pl0 {
   padding-left: 0 !important;

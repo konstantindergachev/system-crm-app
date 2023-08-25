@@ -4,9 +4,9 @@ import './Spinner.scss';
 
 const Spinner = () => {
   return (
-    <div className="row">
+    <div className="row ">
       <div className="col s12 center">
-        <div className="preloader-wrapper small active">
+        <div className="preloader-wrapper big active">
           <div className="spinner-layer spinner-green-only">
             <div className="circle-clipper left">
               <div className="circle" />

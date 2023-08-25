@@ -15,22 +15,11 @@ class Analytics extends Component {
     getAnatytics(token);
   }
   render() {
-    const {
-      isAuth,
-      username,
-      logOutClick,
-      isLoading,
-      average,
-      gainConfig,
-      orderConfig,
-    } = this.props;
+    const { isAuth, username, logOutClick, isLoading, average, gainConfig, orderConfig } =
+      this.props;
     return (
       <Fragment>
-        <Sidebar
-          isAuth={isAuth}
-          username={username}
-          logOutClick={logOutClick}
-        />
+        <Sidebar isAuth={isAuth} username={username} logOutClick={logOutClick} />
         {isLoading ? (
           <Spinner />
         ) : (
