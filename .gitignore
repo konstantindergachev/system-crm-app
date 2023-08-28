@@ -1,7 +1,9 @@
 /app/client/build
 /app/client/node_modules
 /app/client/yarn.lock
+/app/client/package-lock.json
 
 /config/keys_dev.js
 /node_modules
 yarn.lock
+package-lock.json
