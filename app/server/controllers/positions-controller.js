@@ -1,6 +1,7 @@
 const validatorPositionInput = require('../validation/position');
 const Position = require('../models/position-model');
 const { errorHandler } = require('../../../handlers/errorHandlers');
+const { POSITION_DELETE_SUCCESSFUL } = require('../validation/constants');
 
 module.exports = {
   //@route GET api/positions/position/:categoryId
@@ -31,9 +32,9 @@ module.exports = {
         category: req.body.category,
         user: req.user._id,
       }).save();
-      const [ positionsForClient, positionForClient ] = await Promise.all([ positions, position ]);
+      const [positionsForClient, positionForClient] = await Promise.all([positions, position]);
       res.status(201).json({
-        positions: [ positionForClient, ...positionsForClient ],
+        positions: [positionForClient, ...positionsForClient],
       });
     } catch (err) {
       errorHandler(res, err);
@@ -47,7 +48,11 @@ module.exports = {
     const { errors, isValid } = validatorPositionInput(req.body);
     if (!isValid) return res.status(400).json(errors);
     try {
-      const updPosition = await Position.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true });
+      const updPosition = await Position.findOneAndUpdate(
+        { _id: req.params.id },
+        { $set: req.body },
+        { new: true }
+      );
       res.status(200).json(updPosition);
     } catch (err) {
       errorHandler(res, err);
@@ -61,7 +66,7 @@ module.exports = {
       await Position.deleteOne({ _id: req.params.id });
       const deletedPositionId = req.params.id;
       res.status(200).json({
-        msg: 'Позиция была удалена.',
+        msg: POSITION_DELETE_SUCCESSFUL,
         deletedPositionId: deletedPositionId,
       });
     } catch (err) {

@@ -1,5 +1,6 @@
 const Order = require('../models/order-model');
 const { errorHandler } = require('../../../handlers/errorHandlers');
+const { ORDER_CREATE_SUCCESSFUL } = require('../validation/constants');
 
 module.exports = {
   //@route POST api/orders/order
@@ -17,7 +18,7 @@ module.exports = {
         user: req.user.id,
       });
       await newOrder.save();
-      res.status(201).json({ msg: 'Заказ успешно создан' });
+      res.status(201).json({ msg: ORDER_CREATE_SUCCESSFUL });
     } catch (err) {
       errorHandler(res, err);
     }
@@ -50,7 +51,10 @@ module.exports = {
     }
 
     try {
-      const orders = await Order.find(query).sort({ createdAt: -1 }).skip(Number(req.query.offset)).limit(Number(req.query.limit));
+      const orders = await Order.find(query)
+        .sort({ createdAt: -1 })
+        .skip(Number(req.query.offset))
+        .limit(Number(req.query.limit));
 
       res.status(200).json(orders);
     } catch (err) {

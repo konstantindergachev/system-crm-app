@@ -5,6 +5,13 @@ const Category = require('../models/category-model');
 const Position = require('../models/position-model');
 const { errorHandler } = require('../../../handlers/errorHandlers');
 const { imageUrl, cloud_name, api_key, api_secret } = require('../../../config/keys');
+const {
+  FILE_HOSTING_ERROR,
+  FILE_HOSTING_SUCCESSFUL,
+  FILE_DELETE_SUCCESSFUL,
+  CATEGORY_DELETE_SUCCESSFUL,
+} = require('../validation/constants');
+
 cloudinary.config({ cloud_name, api_key, api_secret });
 
 const ObjectId = require('mongodb').ObjectID;
@@ -40,7 +47,7 @@ module.exports = {
   //access Private
   async saveImage(req, res) {
     if (Object.keys(req.files).length === 0) {
-      res.status(400).send('Файл небыл опубликован');
+      res.status(400).send(FILE_HOSTING_ERROR);
     }
     const uploadFile = req.files.file;
     const fileName = req.files.file.name;
@@ -57,7 +64,7 @@ module.exports = {
           }
         });
       }
-      res.status(201).send({ msg: 'Файл успешно сохранен!', imageId: result.public_id });
+      res.status(201).send({ msg: FILE_HOSTING_SUCCESSFUL, imageId: result.public_id });
     } catch (err) {
       errorHandler(res, err);
     }
@@ -70,7 +77,7 @@ module.exports = {
     const imageId = req.body.imageId;
     try {
       await cloudinary.uploader.destroy(imageId);
-      res.status(200).send({ msg: 'Файл успешно удален' });
+      res.status(200).send({ msg: FILE_DELETE_SUCCESSFUL });
     } catch (err) {
       errorHandler(res, err);
     }
@@ -121,7 +128,7 @@ module.exports = {
       await Category.deleteOne({ _id: req.params.id });
       await Position.deleteMany({ category: req.params.id });
       await cloudinary.uploader.destroy(imageId);
-      res.status(200).json({ msg: 'Категория удалена.' });
+      res.status(200).json({ msg: CATEGORY_DELETE_SUCCESSFUL });
     } catch (err) {
       errorHandler(res, err);
     }

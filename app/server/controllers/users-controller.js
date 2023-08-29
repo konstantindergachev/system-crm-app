@@ -5,6 +5,7 @@ const validatorRegisterInput = require('../validation/register');
 const validateLoginInput = require('../validation/login');
 const User = require('../models/user-model');
 const { errorHandler } = require('../../../handlers/errorHandlers');
+const { LOGIN_USER_NOT_FOUND, LOGIN_PASSWORD_IS_INCORRECT } = require('../validation/constants');
 
 module.exports = {
   //@route POST api/users/register
@@ -51,7 +52,7 @@ module.exports = {
     const user = await User.findOne({ email });
 
     if (!user) {
-      errors.email = 'Пользователь с таким емайл не найден';
+      errors.email = LOGIN_USER_NOT_FOUND;
       return res.status(404).json(errors);
     }
 
@@ -63,7 +64,7 @@ module.exports = {
       });
       res.status(200).json({ success: true, token: `Bearer ${token}`, user });
     } else {
-      errors.password = 'Неправильный пароль. Попробуйте снова.';
+      errors.password = LOGIN_PASSWORD_IS_INCORRECT;
       return res.status(401).json(errors);
     }
   },
